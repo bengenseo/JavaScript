@@ -12,12 +12,10 @@
             min-height: 300px;
             background: var(--Fdocks-color);
         }
-        nav ul:after {   
+        .clear:after {   
             content:"";   
             display:block;   
-            clear:both;   
-            height:0;   
-
+            clear:both;
         }
         nav li{
             margin-left: 5px;
@@ -37,7 +35,7 @@
     </style>
 </head>
 <body>
-    <nav class="ma">
+    <nav class="ma clear">
         <ul>
             <li><a href="01form.html" target="_blank">form表单</a></li>
             <li><a href="02图片滤镜.html" target="_blank">图片滤镜</a></li>
