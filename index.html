@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web项目开发-冰洁SEO</title>
     <link rel="stylesheet" href="css/css.css">
+    <style>
+        nav{
+            padding-top: 10px;
+            max-width: 800px;
+            min-height: 300px;
+            background: var(--Fdocks-color);
+        }
+        nav ul:after {   
+            content:"";   
+            display:block;   
+            clear:both;   
+            height:0;   
+
+        }
+        nav li{
+            margin-left: 5px;
+            border-radius: 3px;
+            float: left;
+            background: var(--Dblue-color);
+        }
+        nav li:first-child{
+            margin-left: 0;
+        }
+        nav li a{
+            padding: 10px;
+            display: block;
+            color: var(--white-color);
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a href="01form.html" target="_blank">form表单</a></li>
-    </ul>
+    <nav class="ma">
+        <ul>
+            <li><a href="01form.html" target="_blank">form表单</a></li>
+            <li><a href="02图片滤镜.html" target="_blank">图片滤镜</a></li>
+        </ul>
+    </nav>
 </body>
 </html>

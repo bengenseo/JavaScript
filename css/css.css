@@ -77,12 +77,6 @@ fieldset,img {border:0}
 .r0{right: 0}
 .b0{bottom: 0}
 .l0{left: 0}
-header{
-    height: 100px;
-    background: var(--black-color)}
-nav{
-    height: 50px;
-    background: var(--Dblue-color)}
 @media(max-width:1200px) {
     
 }
