@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项框</title>
+    <style>
+        #bgyellow:checked~.bg {
+            background: yellow;
+        }
+
+        #bgred:checked~.bg {
+            background: red;
+        }
+
+        #bggreen:checked~.bg {
+            background: green;
+        }
+
+        .bg {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="bgyellow">黄色</label>
+    <label for="bgred">红色</label>
+    <label for="bggreen">绿色</label>
+    <input type="radio" name="color" id="bgyellow" hidden>
+    <input type="radio" name="color" id="bgred" hidden>
+    <input type="radio" name="color" id="bggreen" hidden>
+    <div class="bg"></div>
+</body>
+
+</html>

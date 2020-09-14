@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D效果</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        body {
+            perspective: 1000px;
+        }
+
+        .lifang {
+            width: 500px;
+            height: 500px;
+            margin: 200px auto;
+            position: relative;
+            /* 保留子元素3D效果 */
+            transform-style: preserve-3d;
+            transform: rotate3d(1,1,1,0deg);
+            transition: all 3s;
+        }
+        .lifang:hover{
+            transform: rotate3d(1,1,1,720deg);
+        }
+
+        .T3D {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            transition: all .8s;
+        }
+
+        .T3D:hover {
+            opacity: 1;
+        }
+
+        .before {
+            background: url(image/04-1.jpg) no-repeat;
+            /* background-size: auto 100%; */
+            transform: translateZ(250px);
+        }
+
+        .rear {
+            background: url(image/04-2.jpg) no-repeat;
+            transform: translateZ(-250px);
+        }
+
+        .top {
+            background: url(image/04-3.jpg) no-repeat;
+            transform: rotateX(90deg) translateZ(250px);
+        }
+
+        .right {
+            background: url(image/04-4.jpg) no-repeat;
+            transform: rotateY(90deg) translateZ(250px);
+        }
+
+        .bottom {
+            background: url(image/04-5.jpg) no-repeat;
+            transform: rotateX(-90deg) translateZ(250px);
+        }
+
+        .left {
+            background: url(image/04-6.jpg) no-repeat;
+            transform: rotateY(-90deg) translateZ(250px);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="lifang">
+        <li class="T3D before"></li>
+        <li class="T3D rear"></li>
+        <li class="T3D top"></li>
+        <li class="T3D right"></li>
+        <li class="T3D bottom"></li>
+        <li class="T3D left"></li>
+    </ul>
+</body>
+
+</html>
