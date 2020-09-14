@@ -1,72 +1,82 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>02图片滤镜</title>
-        <link rel="stylesheet" href="css/css.css"/>
-        <script src=""></script>
-        <style>
-            h1{
-                text-align: center;
-            }
-            figure{
-                width: 500px;
-                margin: 0 auto
-            }
-            img{
-                width: 500px;
-                height: auto       
-            }
-            img:hover{
-                -webkit-filter:none;
-                filter: none
-            }
-            .img1{
-                /* 黑白 */
-                -webkit-filter: grayscale(100%); 
-                filter: grayscale(100%);
-                transition: all 2s
-            }
-            .img2{
-                /* 亮度 */
-                -webkit-filter: brightness(50%); 
-                filter: brightness(50%);
-                transition: all 2s
-            }
-            .img3{
-                /* 褐色 */
-                -webkit-filter: sepia(50%); 
-                filter: sepia(50%);
-                transition: all 2s
-            }
-            .img4{
-                /* 模糊度 */
-                -webkit-filter: blur(3px); 
-                filter: blur(3px);
-                transition: all 2s
-            }
-        </style>
-    </head>
-    <body>
-        <h1>
-            <a href="https://www.runoob.com/cssref/css3-pr-filter.html">滤镜教程</a>
-        </h1>
-        <figure>
-            <figcaption>黑白</figcaption>
-            <img class="img1" src="image/02.jpg" alt="">
-        </figure>
-        <figure>
-            <figcaption>亮度</figcaption>
-            <img class="img2" src="image/02.jpg" alt="">
-        </figure>
-        <figure>
-            <figcaption>褐色</figcaption>
-            <img class="img3" src="image/02.jpg" alt="">
-        </figure>
-        <figure>
-            <figcaption>模糊</figcaption>
-            <img class="img4" src="image/02.jpg" alt="">
-        </figure>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02图片滤镜</title>
+    <link rel="stylesheet" href="css/css.css" />
+    <script src=""></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        figure {
+            width: 500px;
+            margin: 0 auto
+        }
+
+        img {
+            width: 500px;
+            height: auto
+        }
+
+        img:hover {
+            -webkit-filter: none;
+            filter: none
+        }
+
+        .img1 {
+            /* 黑白 */
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            transition: all 2s
+        }
+
+        .img2 {
+            /* 亮度 */
+            -webkit-filter: brightness(50%);
+            filter: brightness(50%);
+            transition: all 2s
+        }
+
+        .img3 {
+            /* 褐色 */
+            -webkit-filter: sepia(50%);
+            filter: sepia(50%);
+            transition: all 2s
+        }
+
+        .img4 {
+            /* 模糊度 */
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+            transition: all 2s
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <a href="https://www.runoob.com/cssref/css3-pr-filter.html">滤镜教程</a>
+    </h1>
+    <figure>
+        <figcaption>黑白</figcaption>
+        <img class="img1" src="image/02.jpg" alt="">
+    </figure>
+    <figure>
+        <figcaption>亮度</figcaption>
+        <img class="img2" src="image/02.jpg" alt="">
+    </figure>
+    <figure>
+        <figcaption>褐色</figcaption>
+        <img class="img3" src="image/02.jpg" alt="">
+    </figure>
+    <figure>
+        <figcaption>模糊</figcaption>
+        <img class="img4" src="image/02.jpg" alt="">
+    </figure>
+</body>
+
 </html>

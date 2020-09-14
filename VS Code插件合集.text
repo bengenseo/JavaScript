@@ -1,0 +1,32 @@
+1，Atom One Dark Theme      //代码颜色插件   是我目前使用的一个
+2，Auto Rename Tag  	//修改HTML标签时，自动修改匹配的标签
+3，background  		//代码编辑页的背景图片插件
+4，Beautify  		//代码格式化插件
+5，Color Info 		//获取css样式颜色信息及转换
+6，CSS Peek 		//选中class或者id类名右键选中定义，可以跳转到相应的css样式。
+7，cssrem 		//rem插件，编写值的时候可以选择改为rem，默认值是16像素，所以编写项目的时候要自己改一下默认值。
+8，dimmed-monokai Theme	//代码颜色插件，不过我不是很喜欢这个
+9，Easy LESS 		//自动编译less的插件
+10，Easy Sass 		//自动编译sass的插件  和某个插件冲突
+11，ESLint  		//js提示语法错误提示插件，其实他有有更高级的玩法，但是不会用，用默认的就行了。
+12，filesize 		//在底部状态栏显示当前文件大小，点击后还可以看到详细创建、修改时间
+13，HTMLHint		//html代码错误检测错误
+14，jQuery Code Snippets 	//jq代码提示插件
+15，Live Server		//非常实用插件，文件在http本地服务器打开
+16，Open in Browser 	//右键可以选择文件在哪个浏览器打开的插件
+17，Path Intellisense	//编写路径提示或自动补全插件。
+18，Simple icons Theme	//好看的文件图标插件
+19，Vue 2 Snippets 	//vue2的语法高亮，语法提示。
+20，Vetur 	//能够实现在 .vue 文件中：
+语法错误检查，包括 CSS/SCSS/LESS/Javascript/TypeScript
+语法高亮，包括 html/jade/pug css/sass/scss/less/stylus js/ts
+emmet 支持
+代码自动补全（目前还是初级阶段），包括 HTML/CSS/SCSS/LESS/JavaScript/TypeScript
+配合 ESLint 插件食用效果更佳。
+21，Code Runner 		//能单独选定某一段代码运行，但只能在js文件夹使用
+22，IntelliSense for CSS class names	//写class的时候能提示你引入的一些库，比如bootstop的class类名。
+23，HTML Preview  // html实时预览
+24，open in browser
+25，view in browser
+26. Bracket Pair Colorizer 2   大括号加提示颜色
+27. Prettier Formatter   保存自动排版
