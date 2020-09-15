@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="zh-CN">
     <title>⎛冰洁博客⎞-文字转动</title>
-    
+    <script src="http://www.52geju.com/templets/default/js/jquery-3.3.1.min.js"></script>
 <!-- 移动端 -->
 <script type="text/javascript">
     var browser = {
@@ -135,27 +135,27 @@ newtext();
     <span style="font-size:16px;">
         <script>
         //文章页自动生成二维码   国外才能访问、打开
-        thisURL = document.URL;
-        strwrite = "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|4&chl=" + thisURL + "' width='150' height='150' alt='QR 码' />";
-        document.write( strwrite );
+        // thisURL = document.URL;
+        // strwrite = "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|4&chl=" + thisURL + "' width='150' height='150' alt='QR 码' />";
+        // document.write( strwrite );
         </script>
     </span>
     <script>
         //删除指定字符串、文字
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
-        document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
+        // document.getElementById("box").innerHTML=document.getElementById("box").innerHTML.toString().replace(//ig,'');
     </script>
     <!-- 分享到各个平台 -->
     <div class="bdsharebuttonbox">
@@ -187,5 +187,27 @@ newtext();
         with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];
     </script>
     <!-- 分享到各个平台 end -->
+    <!-- 滚动项 -->
+    <div style="height:1000px;">
+        <div style="position: fixed; bottom: 20px;right: 20px;">
+            <div class="scrollItem" id="toTop">Top</div>
+            <div class="scrollItem" id="toBottom">Bom</div>
+        </div>
+    </div>
+    <style>
+        .scrollItem {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background: #F3F3F3;
+            border: #e1e1e1 1px solid;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 5px;
+            border-radius: 3px;
+        }
+    </style>
+    <script type="text/javascript" src="http://www.52geju.com/templets/default/js/top.js"></script>
+    <!-- 滚动项 end -->
 </body>
 </html>
