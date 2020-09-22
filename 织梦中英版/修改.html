@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中英模板修改</title>
+</head>
+<body>
+    <h2>英文版</h2>
+    <ul>
+        <li>
+            当前位置(方法一)：{dede:field name='position' runphp='yes'}$b = array("主页");$c = array("HOME");@me=str_replace($b,$c,@me);{/dede:field}
+        </li>
+        <li>当前位置(方法二)：{dede:field name='position'  function='str_replace("主页","Home",Html2Text("@me"))'/}</li>
+        <li>上一篇：{dede:prenext get='pre' function='str_replace(array("上一篇","下一篇","没有了"),array("Previous","Next","none"),@me)' /}</li>
+        <li>下一篇：{dede:prenext get='next' function='str_replace(array("上一篇","下一篇","没有了"),array("Previous","Next","none"),@me)' /}</li>
+        <li>分页(翻页)：{dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5" pagelang='en'/}</li>
+    </ul>
+</body>
+</html>
