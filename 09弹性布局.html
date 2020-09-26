@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09弹性布局</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        ul {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            border: 1px solid #999;
+            /* 设置为弹性容器 */
+            display: flex;
+            /* 
+                设置主轴方向
+                row 从左往右
+                column 从上往下
+                row-reverse 从右往左
+             */
+            flex-direction: row;
+            /*
+                设置主轴的内容布局
+                flex-start 向主轴的开始位置靠拢（默认）
+                flex-end 向主轴的结束位置靠拢
+                space-around 平均分布，两边有间距，间距是中间的一半
+                space-between 平均分布，两边没有间距
+                space-evenly 平均分布，两边有间距，间距是一样的
+             */
+            justify-content: space-evenly;
+            /* 设置侧轴的内容布局
+                flex-start 向侧轴的开始位置靠拢
+                center 向侧轴中心位置靠拢
+                flex-end 向侧轴的结束位置靠拢
+                stretch 拉伸（默认）如果设置高度，拉伸无效
+            */
+            align-items: center;
+        }
+
+        /* 弹性子元素 */
+        ul li {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <article>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+            </ul>
+        </article>
+    </main>
+</body>
+
+</html>

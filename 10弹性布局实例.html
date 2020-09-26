@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10弹性布局实例</title>
+    <link rel="stylesheet" href="../css/css.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        main{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        /* 
+            剩余部分布局
+            flex: 1;占据一份
+            （总宽度-固定宽度）/ 总份数=平均份数的宽度*部分份数=部分宽度
+         */
+        /*
+            子元素排序 order
+            在子元素中设置
+            按从小到大排序
+        */
+        .aside{
+            height: 200px;
+            flex: 1;
+            order: 3;
+            background: var(--Tcooler-color);
+        }
+        article{
+            flex: 2;
+            order: 2;
+            background: var(--THcooler-color);
+            /*
+                flex-start 向侧轴的开始位置靠拢
+                center 向侧轴中心位置靠拢
+                flex-end 向侧轴的结束位置靠拢
+            */
+            align-self: flex-end;
+        }
+        .ad{
+            width: 200px;
+            order: 1;
+            background: var(--Ocooler-color);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <aside class="aside">侧边</aside>
+        <article>
+            <section>主体</section>
+        </article>
+        <aside class="ad">广告</aside>
+    </main>
+</body>
+</html>
