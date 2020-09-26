@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08帧动画</title>
+    <style>
+        main{
+            width: 480px;
+            height: 210px;
+            margin: 0 auto;
+            border: 1px lightslategrey solid;
+        }
+        .imgbox{
+            width: 480px;
+            height: 192px;
+            background-image: url(../image/08.png);
+            
+        }
+        #lyj:checked~ .imgbox{
+            animation: lyj 2s steps(23) infinite;
+        }
+        @keyframes lyj{
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: 0 -4416px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input type="checkbox" name="" id="lyj">
+        <div class="imgbox"></div>
+    </main>
+</body>
+</html>
