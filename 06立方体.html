@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立方体</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        body {
+            perspective: 1000px;
+        }
+
+        .lifang {
+            width: 500px;
+            height: 500px;
+            margin: 150px auto;
+            position: relative;
+            /* 保留子元素3D效果 */
+            transform-style: preserve-3d;
+            transform: rotate3d(1, 1, 1, 0deg);
+            transition: all 3s;
+        }
+
+        .lifang:hover {
+            transform: rotate3d(1, 1, 1, 720deg);
+        }
+
+        .T3D {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.9;
+            transition: all .8s;
+        }
+
+        .T3D:hover {
+            opacity: 1;
+        }
+
+        .before {
+            background: url(../image/04-1.jpg) no-repeat;
+            /* background-size: auto 100%; */
+            transform: translateZ(250px);
+        }
+
+        .rear {
+            background: url(../image/04-2.jpg) no-repeat;
+            transform: translateZ(-250px);
+        }
+
+        .top {
+            background: url(../image/04-3.jpg) no-repeat;
+            transform: rotateX(90deg) translateZ(250px);
+        }
+
+        .right {
+            background: url(../image/04-4.jpg) no-repeat;
+            transform: rotateY(90deg) translateZ(250px);
+        }
+
+        .bottom {
+            background: url(../image/04-5.jpg) no-repeat;
+            transform: rotateX(-90deg) translateZ(250px);
+        }
+
+        .left {
+            background: url(../image/04-6.jpg) no-repeat;
+            transform: rotateY(-90deg) translateZ(250px);
+        }
+
+        .main label {
+            display: inline-block;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            border: 3px solid #eee;
+        }
+        /*前面*/
+        #before:checked~.lifang {
+            transform: rotate3d(0, 1, 0, 360deg);
+        }
+
+        #before:checked~.main [for="before"] {
+            background: #eee;
+            color: #999;
+        }
+        /*后面*/
+        #rear:checked~.lifang {
+            transform: rotate3d(0, 1, 0, 180deg);
+        }
+
+        #rear:checked~.main [for="rear"] {
+            background: #eee;
+            color: #999;
+        }
+        /*上面*/
+        #top:checked~.lifang {
+            transform: rotate3d(1, 0, 0, 270deg);
+        }
+
+        #top:checked~.main [for="top"] {
+            background: #eee;
+            color: #999;
+        }
+        /*右面*/
+        #right:checked~.lifang {
+            transform: rotate3d(0, 1, 0, 270deg);
+        }
+
+        #right:checked~.main [for="right"] {
+            background: #eee;
+            color: #999;
+        }
+        /*下面*/
+        #bottom:checked~.lifang {
+            transform: rotate3d(1, 0, 0, 90deg);
+        }
+
+        #bottom:checked~.main [for="bottom"] {
+            background: #eee;
+            color: #999;
+        }
+        /*左面*/
+        #left:checked~.lifang {
+            transform: rotate3d(0, 1, 0, 90deg);
+        }
+
+        #left:checked~.main [for="left"] {
+            background: #eee;
+            color: #999;
+        }
+        /*
+            扩大 scale(倍数)
+            方法二：transform: translateZ(500px)
+        */
+        #big:checked~.lifang {
+            transform: scale(2) rotate3d(1, 0, 0, 90deg);
+        }
+
+        #big:checked~.main [for="big"] {
+            background: #eee;
+            color: #999;
+        }
+        /*
+            缩小
+            方法二：transform: translateZ(-500px)
+        */
+        #small:checked~.lifang {
+            transform: scale(0.5) rotate3d(0, 1, 0, 90deg);
+        }
+
+        #small:checked~.main [for="small"] {
+            background: #eee;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="radio" name="color" id="before">
+    <input type="radio" name="color" id="rear">
+    <input type="radio" name="color" id="top">
+    <input type="radio" name="color" id="right">
+    <input type="radio" name="color" id="bottom">
+    <input type="radio" name="color" id="left">
+    <input type="radio" name="color" id="big">
+    <input type="radio" name="color" id="small">
+    <ul class="lifang">
+        <li class="T3D before"></li>
+        <li class="T3D rear"></li>
+        <li class="T3D top"></li>
+        <li class="T3D right"></li>
+        <li class="T3D bottom"></li>
+        <li class="T3D left"></li>
+    </ul>
+    <nav class="main">
+        <label for="before">前</label>
+        <label for="rear">后</label>
+        <label for="top">上</label>
+        <label for="right">右</label>
+        <label for="bottom">下</label>
+        <label for="left">左</label>
+        <label for="big">大</label>
+        <label for="small">小</label>
+        <!--绑定输入框-->
+    </nav>
+</body>
+
+</html>
