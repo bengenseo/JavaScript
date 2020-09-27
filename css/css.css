@@ -77,6 +77,16 @@ fieldset,img {border:0}
 .r0{right: 0}
 .b0{bottom: 0}
 .l0{left: 0}
-@media(max-width:1200px) {
+
+@media screen and (min-width:1200px){
+
+}
+@media screen and (min-width:992px){
+
+}
+@media screen and (min-width:768px){
+
+}
+@media screen and (min-width:480px){
     
 }
