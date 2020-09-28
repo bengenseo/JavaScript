@@ -1,0 +1,115 @@
+ul,nav,ol{
+    list-style-type: none;
+}
+header{
+    height: 44px;
+    position: relative;
+    background: #0F0F0F;
+}
+header nav{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .logo{
+    background: url(../image/11logo.svg) no-repeat center;
+}
+header .search a{
+    display: inline-flex;
+    height: 42px;
+    background: url(../image/11search.svg);
+    background-size: 18px 88px;
+    background-repeat: no-repeat;
+}
+header .buy a{
+    display: inline-flex;
+    height: 42px;
+    background: url(../image/buy.svg)no-repeat;
+}
+header nav li,header nav .buy,header .logo{
+    width: 100px;
+}
+header nav a{
+    line-height: 44px;
+    padding: 0 10px;
+    opacity: 0.8;
+    color: #f5f5f7;
+}
+header nav a:hover{
+    opacity: 1;
+}
+header label{
+    width: 100px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+label span{
+    width: 22px;
+    margin: 7px 0;
+    border-bottom: 1px solid #f5f5f7;
+    transform-origin: left;
+    transition: all .5s;
+}
+#menu:checked ~ label span:nth-child(1){
+    transform: rotate(45deg);
+}
+#menu:checked ~ label span:last-child{
+    transform: rotate(-45deg);
+}
+.banner{
+    height: 625px;
+    background-color: #000;
+    background-image: url(../image/11banner.png);
+    background-repeat: no-repeat;
+    background-position: center 95%;
+    text-align: center;
+}
+.banner2{
+    height: 57px;
+    padding-top: 70px;
+    background-image: url(../image/11banner2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.banner .suhead{
+    color: #f5f5f7;
+    font-size: 28px;
+    font-weight: 400;
+}
+.banner .cta-links{
+    margin-top: 25px;
+}
+.banner .cta-links a{
+    color: #2997ff;
+    font-size: 21px;
+}
+.banner .cta-links a::after{
+    padding-left: 10px;
+    content: '>';
+}
+.banner .cta-links a:nth-child(1){
+    margin-right: 35px;
+}
+@media only screen and (max-width: 767px){
+    header nav{
+        justify-content: space-between;
+    }
+    header nav li{
+        display: none;
+    }
+    header label{
+        display: flex;
+        order: 1;
+    }
+    header .logo{
+        order: 2;
+    }
+    header nav .buy{
+        display: block;
+        order: 3;
+    }
+}
