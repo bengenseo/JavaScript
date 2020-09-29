@@ -77,6 +77,12 @@ fieldset,img {border:0}
 .r0{right: 0}
 .b0{bottom: 0}
 .l0{left: 0}
+.clear:after {
+    /* 清除浮动 解决父元素高度塌陷问题 */
+    content: "";
+    display: block;
+    clear: both;
+}
 
 @media screen and (min-width:1200px){
 
