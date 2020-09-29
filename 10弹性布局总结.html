@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10弹性布局总结</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .heng,.pai{
+            height: 100px;
+            background: var(--Oslate-color);
+            display: flex;
+            /* 主轴==横轴 */
+            flex-direction: row;
+            /* 
+                space-between 最两边没有间距
+                space-evenly 两边间距一样
+                space-around 最两边间距是中间的一半
+             */
+            justify-content: space-between;
+            /* 居中 */
+            align-items: center;
+        }
+        .heng span,.pai span{
+            width: 100px;
+            height: 50px;
+            background: var(--THslate-color);
+        }
+        .zong{
+            height: 400px;
+            background: var(--Oslate-color);
+            display: flex;
+            /* 侧轴==纵轴 */
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            /*
+                flex-start 正序
+                center 居中
+                flex-end 倒序
+            */
+            /* 居中 */
+            align-items: center;
+        }
+        .zong span{
+            width: 100px;
+            height: 50px;
+            background: var(--THslate-color);
+        }
+        .pai span{
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .pai span:nth-child(1){
+            /* 排序 */
+            order: 3;
+            /* 占比 =（100%宽度或总宽度 - 固定宽度）/ flex总数 * 占比数量 */
+            flex: 3;
+        }
+        .pai span:nth-child(2){
+            /* 排序 数字最小的优先级最大，排到最前 */
+            order: 1;
+        }
+        .pai span:nth-child(3){
+            /* 排序 */
+            order: 2;
+            /* 占比 */
+            flex: 1;
+        }
+        .pai span:nth-child(4){
+            /* 排序 */
+            order: 5;
+        }
+        .pai span:nth-child(5){
+            /* 排序 */
+            order: 4;
+            /* 占比 */
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;height: 50px;line-height: 50px;font-size: 24px;">横轴弹性布局</h1>
+    <ul class="heng">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </ul>
+    <h2 style="text-align: center;height: 50px;line-height: 50px;font-size: 24px;">纵轴弹性布局</h2>
+    <ul class="zong">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </ul>
+    <h3 style="text-align: center;height: 50px;line-height: 50px;font-size: 24px;">弹性排序</h3>
+    <ul class="pai">
+        <span>一</span>
+        <span>二</span>
+        <span>三</span>
+        <span>四</span>
+        <span>五</span>
+    </ul>
+</body>
+</html>
