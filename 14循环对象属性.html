@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14循环对象属性</title>
+</head>
+<body>
+    <script>
+        var obj={
+            id:'1',
+            list:'新闻',
+            article:'国内事件',
+        }
+        for(var item in obj){
+            document.writeln('<h1>key：'+item+'<br>value：'+obj[item]+'</h1>');
+        }
+    </script>
+</body>
+</html>

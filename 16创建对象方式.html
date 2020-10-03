@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16创建对象方式</title>
+</head>
+
+<body>
+    <script>
+        // var obj = { // 1.字面量方式
+        //     id: '1',
+        //     name: 'ben',
+        //     list: '新闻',
+        //     article: function () {
+        //         console.log(this.name)
+        //     }
+        // };
+
+
+
+
+        // function Obj(id, name, list) { // 2.工厂模式
+        //     var obj = {
+        //         id: id,
+        //         name: name,
+        //         list: list,
+        //         article: function () {
+        //             console.log(this.name + '喜欢' + list)
+        //         }
+        //     };
+        // }
+        // var obj1 = Obj('1', "2", "3");
+        // var obj2 = Obj('5', "3", "8");
+
+
+
+
+        // function Obj(id, name, list) { // 3.自定义构造函数
+        //     this.id = id;
+        //     this.name = name;
+        //     this.list = list;
+        //     this.article = function () {
+        //         console.log(this.name + '喜欢' + list)
+        //     }
+        // }
+        // // new 构建一个新对象，将函数内部的this指向新对象
+        // var o1 = new Obj('20', "小名", "篮球");
+        // console.log(o1.name + '喜欢' + o1.list)
+
+
+
+
+        //class 创建对象，es6
+        // class Obj {
+        //     //定义构造函数
+        //     constructor(id, name, list) {
+        //         this.id = id;
+        //         this.name = name;
+        //         this.list = list;
+        //         this.article = function () {//方法1
+        //             console.log(this.name + '喜欢' + list)
+        //         };
+        //         }
+        //         article(){//方法2
+        //             console.log(this.name + '喜欢' + list)
+        //         }
+        // }
+        // var o1 = new Obj('20', "小名", "篮球");
+        // console.log(o1.name + '喜欢' + o1.list);
+
+
+
+
+        //设定原型
+        function Obj(id, name, list) {
+            this.id = id;
+            this.name = name;
+            this.list = list;
+        }
+        //封装统一用到的公共对象并将这个对象给到prototype
+        var Obj1 = {
+            article: function () {
+                console.log(this.name + '喜欢' + this.list)
+            }
+        }
+        //构造原型对象属性prototype
+        Obj.prototype = Obj1;
+        var oj = new Obj('20', "小名", "篮球");
+        var ob = new Obj('20', "小miu", "乒乓球");
+        console.log(ob)
+        console.log(oj)
+    </script>
+</body>
+
+</html>

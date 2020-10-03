@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while例子</title>
+</head>
+
+<body>
+    <script>
+        // //现有1000元，年利率5%，增值到5000元。需要几年。
+        // var m = 1000;
+        // var n = 0;//定义年份，计算一个数值
+        // while(m<5000){
+        //     m*=1.05;
+        //     n++;
+        //     document.writeln("<h1>一共需要"+n+"年</h1>");//把结果写在里面就循环输出，直到满足条件次数
+        // }
+        // document.writeln("<h1>一共需要"+n+"年</h1>");
+        // console.log(m);
+        // console.log("一共需要"+ n +"年");
+        //     // break;结束整个循环。
+        //     // continue 只结束满足当前条件的一次或某几次循环。
+
+        for (var i = 1000, j = 1; i <= 5000; j++, i *= 1.05) {
+            console.log("一共需要" + i + "年");
+            console.log("一共需要" + j + "年");
+        }
+    </script>
+</body>
+
+</html>

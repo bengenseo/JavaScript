@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13函数-arguments</title>
+</head>
+
+<body>
+    <script>
+        function add() {//函数声明提升，这是整个函数对象提升到最前面
+            var sum = 0;
+            console.log(arguments);
+            for (var i = 0; i < arguments.length; i++) {//可以通过arguments获取所有实际传递的参数
+                sum = sum+arguments[i];
+            }
+            return sum;//默认返回 undefined   执行了return就直接退出 不执行下面语句
+            // document.writeln("<h1>"+sum);
+        }
+        // 调用函数 fn();
+        // 调用方法 obj.fn();
+    </script>
+</body>
+
+</html>

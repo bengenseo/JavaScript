@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15改变this的指向</title>
+</head>
+<body>
+    <script>
+        var obj={
+            id:'1',
+            name:'ben',
+            list:'新闻',
+            article:function(){//article:()=>{} 绑定this的外层
+                console.log(this.name)
+            }.bind(obj), // .bind() 绑定this的外层
+        };
+        var ob={
+            name:'bengen'
+        };
+        var oj=obj.article;
+        // call/apply 都可以改变this指向
+        // call 按参数传递 oj.call(ob,'1','2','3') 按顺序传入
+        // apply 按数组传递 oj.apply(ob,['1','2','3']) 以数组形式传入
+        oj.apply(ob)
+    </script>
+</body>
+</html>
