@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17instanceof一个对象是否为一个类的实例</title>
+</head>
+
+<body>
+    <script>
+        //设定原型
+        function Obj(id, name, list) {
+            this.id = id;
+            this.name = name;
+            this.list = list;
+        }
+        //封装统一用到的公共对象并将这个对象给到prototype
+        var Obj1 = {
+            article: function () {
+                console.log(this.name + '喜欢' + this.list)
+            }
+        }
+        //构造原型对象属性prototype
+        Obj.prototype = Obj1;
+        var oj = new Obj('20', "小名", "篮球");
+        var ob = new Obj('20', "小miu", "乒乓球");
+        console.log(ob)
+        console.log(oj)
+        console.log(oj instanceof Obj)
+        console.log(ob instanceof Obj)
+    </script>
+</body>
+
+</html>

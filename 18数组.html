@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18数组</title>
+</head>
+
+<body>
+    <script>
+        //数组可以存放所有数据，没有限制
+        //创建数组第一种：字面量方式
+        var add = ["1", "2", "3"];
+
+        //创建数组第二种：构造函数方式
+        var add1 = new Array("1", "2", "3");
+        //数据的存取可以通过索引值获取
+        document.writeln(add[1]);
+        //可以通过length，依次输出
+        for (i = 0; i < add.length; i++) {
+            document.writeln("<h1>" + add[i] + "</h1>");
+        }
+
+
+        //给add数组最后面添加一个内容
+        add.push("wo");
+        console.log(add);
+
+
+        //给add1数组最后面删除一个内容  有返回值
+        add1.pop();
+        console.log(add1);
+
+
+        //给add1数组最前面删除一个内容  有返回值
+        add1.shift();
+        console.log(add1);
+
+
+        ////给add1数组最前面添加一个内容
+        add1.unshift("you");
+        console.log(add1);
+    </script>
+</body>
+
+</html>
