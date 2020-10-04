@@ -26,7 +26,9 @@
             float: left;
             background: var(--Dblue-color);
         }
-
+        nav li{
+            margin-top: 10px;
+        }
         nav li:first-child {
             margin-left: 0;
         }
@@ -38,17 +40,60 @@
             text-align: center;
         }
     </style>
+    <script>
+        var a = "https://bengenseo.github.io/SeoTilte/";
+        var arr = ["01form.html",
+            "02图片滤镜.html",
+            "03阴影过渡动画效果.html",
+            "04-3D效果.html",
+            "05checked状态的应用.html",
+            "05选项框.html",
+            "06立方体.html",
+            "07loading.html",
+            "08帧动画.html",
+            "09弹性布局.html",
+            "10弹性布局实例.html",
+            "10弹性布局总结.html",
+            "10弹性换行.html",
+            "11移动端与响应式.html",
+            "12while例子.html",
+            "13函数-arguments.html",
+            "13函数.html",
+            "14属性设置.html",
+            "14循环对象属性.html",
+            "15改变this指向.html",
+            "16创建对象方式.html",
+            "17用instanceof检查实例.html",
+            "18数组.html",
+            "18数组实例.html",
+            "ColorScheme.html",
+            "index.html",
+            "TreeList.txt",
+            "VSCode插件合集.html",
+            "_config.yml",
+            "移动端PC端互转.html",
+        ];
+        document.writeln("<nav class='ma'>");
+        document.writeln("<ul class='clear'>");
+        for (i = 0; i < arr.length; i++) {
+
+            document.writeln("<li><a href='" + a + arr[i] + "' target=_blank>" + arr[i] + "</a></li>");
+
+        }
+        document.writeln("</ul>");
+        document.writeln("</nav>");
+    </script>
 </head>
 
 <body>
-    <nav class="ma">
+    <!-- <nav class="ma">
         <ul class="clear ">
             <li><a href="01form.html" target="_blank">form表单</a></li>
             <li><a href="02图片滤镜.html" target="_blank">图片滤镜</a></li>
             <li><a href="VS Code插件合集.html" target="_blank">VS Code插件</a></li>
             <li><a href="ColorScheme.html" target="_blank">ColorScheme</a></li>
         </ul>
-    </nav>
+    </nav> -->
 </body>
 
 </html>
