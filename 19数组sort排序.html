@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19数组sort排序</title>
+</head>
+<body>
+    <script>
+        var arr=["status","热销机型", "children", "groups", "nodeLevel"];
+        var arr1=arr.sort();//sort();不传参的，默认 Unicode编码排序。
+        console.log(arr1);
+
+        var arr2=[1,546,8416489,8635,846489,8888,871566,66];
+        function fn(a,b){
+            if(a>b){//a>b 正序，a<b倒序。或者更改return 1或return -1的位置。
+                return 1;
+            }else{
+                return -1;
+            }
+        }
+        var arr3=arr2.sort(fn);
+        console.log(arr3);
+    </script>
+</body>
+</html>

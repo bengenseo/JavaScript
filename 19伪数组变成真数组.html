@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19伪数组变成真数组</title>
+</head>
+<body>
+    <script>
+        function arr(){
+            console.log(arguments);
+            var newArr=Array.prototype.slice.call(arguments);
+            //同等写法 var newArr=[].slice.call(arguments);
+
+            //ES6写法 var newArr=Array.from(arguments);
+            console.log(newArr);
+        }
+        arr(1,2,3,5,4,"卧槽");
+    </script>
+</body>
+</html>
