@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21获取元素</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="list">1</li>
+        <li class="list">2</li>
+        <li class="list">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // ES5之前获取元素
+        // 获取class名
+        document.getElementsByClassName("");
+        //获取ID名
+        document.getElementById("");
+        //获取标签
+        document.getElementsByTagName("");
+
+
+
+
+        //ES5之后获取元素
+        //querySelector(""); 只有获取到最先匹配的第一个对象
+        document.querySelector("#aa .ccc");
+
+        //querySelectorAll(""); 获取所有匹配的元素对象
+        document.querySelectorAll("");
+
+        //父节点
+        document.PannerNode();
+
+        //下一个兄弟节点 中文
+        nextSibling();
+        //下一个获取兄弟节点所有内容
+        nextElementSibing();
+
+        //上一个兄弟节点 中文
+        previousSibling();
+        //上一个获取兄弟节点所有内容
+        previousElementSibling();
+
+        //获取第一个节点
+        children[0];
+        //获取最后一个节点
+        children[this.children.length-1];
+        //所有子节点
+        children();
+        childNodes();
+
+        //子节点
+        //第一个子节点中文
+        firstChild();
+        //第一个子节点所有内容
+        firstElementChild();
+
+        //最后一个子节点中文
+        lastChild();
+        //最后一个子节点所有内容
+        lastElementChild();
+
+        d1.parentElement.inserBefore();//传入两个值
+        //追加元素 如果存在两个，只显示最后面一个。
+        appendChild();
+        //删除节点
+        removeChild();
+        //复制节点 默认或不传参数false，不复制子节点；传参数true，复制所有子节点。
+        cloneNode();
+
+        //获取元素属性
+        getAttribute("class");
+        //设置属性值 传入 属性名称,属性值
+        setAttribute("id","");
+    </script>
+</body>
+
+</html>

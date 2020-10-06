@@ -29,6 +29,22 @@
 
 
         //reduce()，用于对内容进行遍历，并且最终输出一个结果值。
+
+        //find();满足第一个条件就返回true，就不继续查询
+
+        //findIndex();满足第一个条件就返回true，返回索引值index
+
+        //indexOf();从前往后查
+        
+        //lastIndexOf();从后往前查
+
+        //toString();数组转换成字符串
+
+        //Array.of();创建数组  同new Array(); 同arr=[];
+
+        //isArray();判断是否为数组，返回true或false
+
+        //Array.from(); 伪数组变成真数组
         var newArr1=arrData.reduce(function(value,item,i,arr){
             return value+item.id;
         },0)//初始值为0
