@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23放大镜实例</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        .fdj {
+            width: 1200px;
+            height: 500px;
+            position: relative;
+            top: 50px;
+            left: 100px;
+            display: flex;
+        }
+
+        .left {
+            width: 400px;
+            height: 250px;
+            background-image: url(image/23.jpg);
+            background-size: 100%;
+        }
+
+        .zhezhao {
+            width: 200px;
+            height: 125px;
+            background: rgba(255, 255, 0, 0.3);
+            position: absolute;
+            display: none;
+        }
+
+        .right {
+            width: 800px;
+            height: 500px;
+            background-image: url(image/23.jpg);
+            background-size: 300%;
+            background-position: 0px 0px;
+            background-repeat: no-repeat;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="fdj">
+        <div class="left">
+            <div class="zhezhao"></div>
+        </div>
+        <div class="right"></div>
+    </main>
+    <script>
+        var fdj = document.querySelector('.fdj');
+        var left = document.querySelector('.left');
+        var zhezhao = document.querySelector('.zhezhao');
+        var right = document.querySelector('.right');
+        //移入显示遮罩
+        left.onmouseenter = function () {
+            zhezhao.style.display = "block";
+            right.style.display = "block";
+        }
+        left.onmouseleave = function (e) {
+            zhezhao.style.display = "none";
+            right.style.display = "none";
+        }
+        left.onmousemove = function (e) {
+            //获取X、Y轴坐标。
+            var x = e.pageX - 100 - fdj.offsetLeft;
+            var y = e.pageY - 62.5 - fdj.offsetTop;
+            if (x < 0) {
+                x = 0;
+            }
+            if (x > 200) {
+                x = 200;
+            }
+            if (y < 0) {
+                y = 0;
+            }
+            if (y > 125) {
+                y = 125;
+            }
+            zhezhao.style.left = x + 'px';
+            zhezhao.style.top = y + 'px';
+            right.style.backgroundPosition =(-x * 8) + 'px ' + (-y * 8) + 'px';
+        }
+    </script>
+</body>
+
+</html>

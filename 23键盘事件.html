@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23键盘事件</title>
+</head>
+
+<body>
+    <input type="text" class="ipt">
+    <script>
+        var inputDom = document.querySelector(".ipt");
+        //键盘按下事件 （包括系统按钮，如箭头键和功能键）时发生。 onkeydown 的使用范围大于onkeypress
+        inputDom.onkeydown = function (event) {
+
+        }
+        //键盘按下事件 系统按钮（例如，箭头键和功能键）无法得到识别。 
+        inputDom.onkeypress = function () {
+
+        }
+        //键盘抬起事件
+        inputDom.onkeyup = function () {
+
+        }
+    </script>
+</body>
+
+</html>

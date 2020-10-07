@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22点击事件</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        .bg,.bg2{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+        }
+        .on{
+            background: var(--orange-color);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="bg">
+
+    </main>
+    <button class="button" type="button">按钮</button>
+    <main class="bg2">
+
+    </main>
+    <button class="button2" type="button" onclick="changeColor()">按钮</button>
+    <script>
+        //绑定点击事件方式：1
+        var button=document.querySelector(".button");
+        //第一次点击不触发问题，解决方法：可以直接在html中写入style属性
+        var bg=document.querySelector(".bg");
+        console.log([bg]);
+        button.onclick=function(){//点击事件 onclick
+            if(bg.classList[bg.classList.length-1]=="on"){
+                bg.classList.remove("on");
+            }else{
+                bg.classList.add("on");
+            }
+        };
+        //双击事件 
+        // button.ondbclick=function(){
+
+        // }
+        //绑定事件方式：2
+        function changeColor(){
+            var bg=document.querySelector(".bg2");
+            if(bg.style.backgroundColor=="brown"){
+                bg.style.backgroundColor="#eee";
+            }else{
+                bg.style.backgroundColor="brown";
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

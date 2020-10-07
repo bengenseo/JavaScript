@@ -18,66 +18,101 @@
     <script>
         // ES5之前获取元素
         // 获取class名
-        document.getElementsByClassName("");
-        //获取ID名
-        document.getElementById("");
-        //获取标签
-        document.getElementsByTagName("");
+        // document.getElementsByClassName("");
+        // //获取ID名
+        // document.getElementById("");
+        // //获取标签
+        // document.getElementsByTagName("");
 
 
 
 
-        //ES5之后获取元素
-        //querySelector(""); 只有获取到最先匹配的第一个对象
-        document.querySelector("#aa .ccc");
+        // //ES5之后获取元素
+        // //querySelector(""); 只有获取到最先匹配的第一个对象
+        // document.querySelector("#aa .ccc");
 
-        //querySelectorAll(""); 获取所有匹配的元素对象
-        document.querySelectorAll("");
+        // //querySelectorAll(""); 获取所有匹配的元素对象
+        // document.querySelectorAll("");
 
-        //父节点
-        document.PannerNode();
+        // //父节点
+        // document.PannerNode();
 
-        //下一个兄弟节点 中文
-        nextSibling();
-        //下一个获取兄弟节点所有内容
-        nextElementSibing();
+        // //下一个兄弟节点 中文
+        // nextSibling();
+        // //下一个获取兄弟节点所有内容
+        // nextElementSibing();
 
-        //上一个兄弟节点 中文
-        previousSibling();
-        //上一个获取兄弟节点所有内容
-        previousElementSibling();
+        // //上一个兄弟节点 中文
+        // previousSibling();
+        // //上一个获取兄弟节点所有内容
+        // previousElementSibling();
 
-        //获取第一个节点
-        children[0];
-        //获取最后一个节点
-        children[this.children.length-1];
-        //所有子节点
-        children();
-        childNodes();
+        // //获取第一个节点
+        // children[0];
+        // //获取最后一个节点
+        // children[this.children.length-1];
+        // //所有子节点
+        // children();
+        // childNodes();
 
-        //子节点
-        //第一个子节点中文
-        firstChild();
-        //第一个子节点所有内容
-        firstElementChild();
+        // //子节点
+        // //第一个子节点中文
+        // firstChild();
+        // //第一个子节点所有内容
+        // firstElementChild();
 
-        //最后一个子节点中文
-        lastChild();
-        //最后一个子节点所有内容
-        lastElementChild();
+        // //最后一个子节点中文
+        // lastChild();
+        // //最后一个子节点所有内容
+        // lastElementChild();
 
-        d1.parentElement.inserBefore();//传入两个值
-        //追加元素 如果存在两个，只显示最后面一个。
-        appendChild();
-        //删除节点
-        removeChild();
-        //复制节点 默认或不传参数false，不复制子节点；传参数true，复制所有子节点。
-        cloneNode();
+        // d1.parentElement.inserBefore();//传入两个值
+        // //追加元素 如果存在两个，只显示最后面一个。
+        // appendChild();
+        // //删除节点
+        // removeChild();
+        // //复制节点 默认或不传参数false，不复制子节点；传参数true，复制所有子节点。
+        // cloneNode();
 
-        //获取元素属性
-        getAttribute("class");
-        //设置属性值 传入 属性名称,属性值
-        setAttribute("id","");
+        // //获取元素属性
+        // getAttribute("class");
+        // //设置属性值 传入 属性名称,属性值
+        // setAttribute("id","");
+        // //删除子元素
+        // removeAttribute("");
+
+
+
+        // //获取class=nav内部的html代码
+        // document.querySelector(".nav").innerHTML;
+        // //获取内部文本
+        // document.getElementById('').innerText;
+        // //获取包含nav的html代码
+        // document.querySelector(".nav").outerHTML;
+
+        // //可以通过style属性修改样式 background-color写法backgroundColor
+        // document.getElementById().style.height="200px";
+        // //className修改样式 多个值就用空格隔开
+        // document.getElementById().className="";
+
+        // //注意：修改类名还可以通过 classList属性的add()、remove()、replace()进行修改className
+        // //添加
+        // document.getElementById().classList.add();
+        // //删除
+        // document.getElementById().classList.remove();
+        // //修改 替换
+        // document.getElementById().classList.replace('','');
+
+        //通过增加style标签，修改多个样式 多行字符串就用反引号
+        //createElement("style") 创建style标签
+        var style = document.createElement("style");
+        style.innerHTML = `
+        .kkk{
+            color:red;
+            height:200px;
+        }
+        `;
+        document.querySelector('body').appendChild(style);
     </script>
 </body>
 

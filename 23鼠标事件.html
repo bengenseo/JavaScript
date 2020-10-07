@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23鼠标事件</title>
+    <style>
+        .mouse{
+            width: 300px;
+            height: 300px;
+            background: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <main class="mouse"></main>
+    <script>
+        var mouse=document.querySelector('.mouse');
+        //鼠标划入事件
+        mouse.onmouseenter=function(e){
+            mouse.style.background="antiquewhite";
+        }
+        //鼠标移出事件
+        mouse.onmouseleave=function(e){
+            mouse.style.background="aliceblue";
+        }
+        //鼠标在元素上移动事件
+        // mouse.onmousemove=function(e){
+        //     mouse.style.background="antiquewhite";
+        //     //获取X、Y轴坐标。
+        //     var x=e.pageX;
+        //     var y=e.pageY;
+        // }
+    </script>
+</body>
+</html>

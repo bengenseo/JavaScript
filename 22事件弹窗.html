@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22事件弹窗</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            align-items: center;
+        }
+        .colse{
+            width: 30px;
+            height: 20px;
+        }
+        .text{
+            width: 300px;
+            height: 200px;
+            background: rosybrown;
+        }
+    </style>
+    <script src="js/js.js"></script>
+</head>
+<body>
+    <button type="button" class="btn">弹窗</button>
+    <!-- <main class="bg">
+        <div>
+            <button type="button" class="close">X</button>
+            <div class="text"></div>
+        </div>
+    </main> -->
+    <script>
+        var btn=document.querySelector(".btn");
+        btn.onclick=function(){
+            //调用弹窗函数
+            bgAlert({
+                title:"<h1>朴实无华</h1>",
+            })
+        }
+    </script>
+</body>
+</html>
