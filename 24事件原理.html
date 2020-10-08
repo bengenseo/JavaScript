@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24事件原理</title>
+</head>
+
+<body>
+    <script>
+        /*
+        lcEvent.addEvent('事件名称', 事件执行函数)
+        //自定义事件
+        lcEvent.addEvent('addBuyCar',fn1)//发送用户消息，添加购物车成功
+        lcEvent.addEvent('addBuyCar', fn2) //购物车栏目里，都商品数量加1
+        lcEvent.addEvent('addBuyCar',fn3)//往后台发送购物车添加了新数量
+        //自定义触发
+        lcEvent.emit('addBuyCar')//触发购物车事件，事件里的所有函数在此时执行
+        */
+        var lcEvent={
+            event:{
+                //"addBuyCar":[fnl,fn2,fn3]
+            },
+            addEvent:function(eventName,fn){
+                if( this. event[eventName]==undefined){
+                    this.event[eventName]=[];
+                }
+                this .event[eventName].push(fn);
+            },
+            emit:function(eventName,eMsg){
+                var fnList=this.event[eventName];
+                fnList.forEach(function(item,i){
+                    item(eMsg);
+                });
+            },
+            removeEvent:function(eventName,fn){
+                var that=this;
+                var fnList=this.event[eventName];
+                fnList.forEach(function(item,i){
+                    if(fn==item){
+                        that.event[eventName].splice(i,1);
+                    }
+                });
+            },
+        };
+        var fn1=function(e){//先定义才能删除。如果直接是匿名函数，两个是不相等
+            console.log('取票');
+        }
+        lcEvent.addEvent("666",fn1);
+        lcEvent.addEvent("666",function(e){
+            console.log('取票1');
+        });
+        lcEvent.addEvent("666",function(e){
+            console.log('取票2');
+        });
+        
+        lcEvent.removeEvent('666',fn1);
+        lcEvent.emit('666');
+        //设计模式:观察者模式/订阅者模式/事件模式
+    </script>
+</body>
+
+</html>
