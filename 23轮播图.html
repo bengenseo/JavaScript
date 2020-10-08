@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23轮播图</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        .banner {
+            width: 1200px;
+            height: 650px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .itemList .item {
+            width: 1200px;
+            height: 650px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .itemList .item.active {
+            opacity: 1;
+        }
+
+        .itemList .item img {
+            margin: 0;
+            padding: 0;
+            width: 1200px;
+            height: 650px;
+        }
+
+        .btnList {
+            /* position: absolute; */
+            display: flex;
+        }
+
+        .btnList .btn {
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: calc(50% - 15px);
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .btnList .btn.pre {
+            left: 0;
+        }
+
+        .btnList .btn.next {
+            right: 0;
+        }
+
+        .circleList {
+            height: 20px;
+            margin-bottom: 20px;
+            position: absolute;
+            left: calc(50% - 87.5px);
+            bottom: 0;
+            display: flex;
+        }
+
+        .circleList .circle {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(0, 0, 0, 0.4);
+        }
+
+        .circleList .circle.active,
+        .circleList .circle:hover {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="banner">
+        <ul class="itemList">
+            <li class="item active"><a href=""><img src="image/23-1.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-2.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-3.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-4.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-5.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-6.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-7.jpg" alt=""></a></li>
+        </ul>
+        <div class="btnList">
+            <div class="btn pre">
+                <</div> <div class="btn next">>
+            </div>
+        </div>
+        <ul class="circleList">
+            <li id="c0" class="circle active"></li>
+            <li id="c1" class="circle"></li>
+            <li id="c2" class="circle"></li>
+            <li id="c3" class="circle"></li>
+            <li id="c4" class="circle"></li>
+            <li id="c5" class="circle"></li>
+            <li id="c6" class="circle"></li>
+        </ul>
+    </main>
+    <script>
+        var preBtn = document.querySelector(".btn.pre");
+        var nextBtn = document.querySelector(".btn.next");
+        var imgItem = document.querySelectorAll(".item");
+        var circles = document.querySelectorAll('.circle');
+        var currentImg = 0;
+        preBtn.onclick = function () {
+            currentImg = currentImg - 1;
+            //判断重置
+            if (currentImg < 0) {
+                currentImg = imgItem.length - 1;
+            }
+            bannerImg()
+        }
+        nextBtn.onclick = function () {
+            currentImg = currentImg + 1;
+            //判断重置
+            if (currentImg >= imgItem.length) {
+                currentImg = 0;
+            }
+            // imgItem.forEach(function(item,i){
+            //     item.classList.remove("active");
+            // });
+            // circles.forEach(function(item,i){
+            //     item.classList.remove("active");
+            // })
+            // imgItem[currentImg].classList.add('active');
+            // circles[currentImg].classList.add('active');
+
+            //函数调用
+            bannerImg()
+        }
+        //相同内容封装函数
+        function bannerImg() {
+            //初始化，将所有的li列表中的active去掉
+            imgItem.forEach(function (item, i) {
+                item.classList.remove("active");
+            });
+            circles.forEach(function (item, i) {
+                item.classList.remove("active");
+            })
+            //添加active
+            imgItem[currentImg].classList.add('active');
+            circles[currentImg].classList.add('active');
+        }
+        //方法1
+        // circles.forEach(function (item, i) {
+        //     item.onclick = function () {
+        //         //方法三获取id var index = item.id[1];currentImg=index
+        //         //forEach 内置函数可以使用 currentImg=i;
+        //         currentImg=i;
+        //         bannerImg();
+        //     }
+        // })
+        //方法二
+        for(var i=0;i<circles.length;i++){
+            circles[i].onclick=(function(index){
+                return function(){
+                    currentImg=index;
+                    bannerImg();
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

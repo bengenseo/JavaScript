@@ -59,7 +59,8 @@
 ol,ul,nav {list-style:none}
 a,a:hover {text-decoration:none}
 address,cite,dfn,em,var {font-style:normal}
-fieldset,img {border:0}
+fieldset,img {border:0};
+img{max-width:100%};
 .ma{margin: 0 auto!important}
 .vv{visibility:visible}
 .dn{display:none}
@@ -77,6 +78,7 @@ fieldset,img {border:0}
 .r0{right: 0}
 .b0{bottom: 0}
 .l0{left: 0}
+.op{opacity: 1;}
 .clear:after {
     /* 清除浮动 解决父元素高度塌陷问题 */
     content: "";

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24捕获</title>
+</head>
+<body>
+    <main class="main"></main>
+    <script>
+        //onclick点击事件只能存在一个函数，如果出现多个只能执行最后一个
+        /*可以出现多个点击事件 addEventListener('click',function(){
+
+        });
+        */
+        var main=document.querySelector('.main');
+        main.addEventListener('click',function(){
+
+        },true);//捕获 true，捕获是从外到里，都是同一层级的
+    </script>
+</body>
+</html>
