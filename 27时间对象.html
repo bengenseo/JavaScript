@@ -28,7 +28,8 @@
         //获取毫秒
         time.getMilliseconds();
         //获取时间戳:从1970.1.1到现在的毫秒数
-        time.getTime();
+        var tome = time.getTime();
+        console.log(time.getTime());
         //设置时间
         //设置年份 setFullYear(传入数字);
         time.setFullYear();
@@ -63,8 +64,7 @@
         } else if (Day == 6) {  
             str = "六";  
         }
-        date=Y+"-"+M+"-"+D+" "+H+":"+m+":"+s+" 星期"+str
-        console.log(date);
+        console.log(date=Y+"-"+M+"-"+D+" "+H+":"+m+":"+s+" 星期"+str);
     </script>
 </body>
 </html>
