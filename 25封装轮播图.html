@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25封装轮播图</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/25swiper.css">
+</head>
+
+<body>
+    <main id="banner2" class="banner">
+        <ul class="itemList">
+            <li class="item active"><a href=""><img src="image/23-1.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-2.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-3.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-4.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-5.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-6.jpg" alt=""></a></li>
+            <li class="item"><a href=""><img src="image/23-7.jpg" alt=""></a></li>
+        </ul>
+        <div class="btnList">
+            <div class="btn pre"><</div> 
+            <div class="btn next">></div>
+        </div>
+        <!-- 根据itemList图片数量自动生成对应数量的小圆点功能
+        <ul class="circleList">
+            <li class="circle active"></li>
+            <li class="circle"></li>
+            <li class="circle"></li>
+            <li class="circle"></li>
+            <li class="circle"></li>
+            <li class="circle"></li>
+            <li class="circle"></li>
+        </ul> -->
+    </main>
+    <script src="js/25swiper_封装函数.js"></script>
+    <script>
+        var banne2 =  swiper("#banner2");
+    </script>
+</body>
+
+</html>
