@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27时间对象</title>
+</head>
+<body>
+    <script>
+        //创建当前的时间
+        var time=new Date();
+        console.log([time])
+        //获取年份
+        var Y=time.getFullYear();
+        //获取月份 月份是从0开始计算，所以要+1
+        var M=time.getMonth()+1;
+        console.log();
+        //获取月份里的第多少天
+        var D=time.getDate();
+        //获取周几
+        var Day=time.getDay();
+        //获取小时
+        var H=time.getHours();
+        //获取分钟
+        var m=time.getMinutes();
+        //获取秒
+        var s=time.getSeconds();
+        //获取毫秒
+        time.getMilliseconds();
+        //获取时间戳:从1970.1.1到现在的毫秒数
+        time.getTime();
+        //设置时间
+        //设置年份 setFullYear(传入数字);
+        time.setFullYear();
+        //设置第几天
+        time.setDate();
+        //设置月份//设置第多少天
+        time.setDate();
+        //设置小时
+        time.setHours();
+        //设置分钟
+        time.setMinutes();
+        //设置秒
+        time.setSeconds();
+        //设置毫秒
+        time.setMilliseconds();
+        //设置时间戳
+        time.setTime();
+        //当前年月日时分秒
+        var str = "";
+        if (Day == 0) {  
+            str = "日";  
+        } else if (Day == 1) {  
+            str = "一";  
+        } else if (Day == 2) {  
+            str = "二";  
+        } else if (Day == 3) {  
+            str = "三";  
+        } else if (Day == 4) {  
+            str = "四";  
+        } else if (Day == 5) {  
+            str = "五";  
+        } else if (Day == 6) {  
+            str = "六";  
+        }
+        date=Y+"-"+M+"-"+D+" "+H+":"+m+":"+s+" 星期"+str
+        console.log(date);
+    </script>
+</body>
+</html>

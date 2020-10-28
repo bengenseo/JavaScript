@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26延时函数</title>
+</head>
+<body>
+    <script>
+        //延时函数
+        //setTimeout(延时做的事,延迟多少毫秒);  延迟做的事传入的是函数，并不是函数调用
+        //比较少用第三个参数；  给延迟触发的函数传参 可以传入多个参数  
+        var fn=function(div){
+            var time=new Date();
+            var span=document.createElement(div);
+            span.innerHTML=time;
+            document.body.appendChild(span);
+        }
+        var timeoutId=setTimeout(fn,2000,'span');
+        //取消延迟函数
+        // clearTimeout(timeoutId);
+    </script>
+</body>
+</html>

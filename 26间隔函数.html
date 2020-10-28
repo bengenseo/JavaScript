@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26间隔函数</title>
+</head>
+<body>
+    <span class="span"></span>
+    <script>
+        //间隔函数
+        //setTimeout(间隔做的事,间隔多少毫秒);   间隔做的事传入的是函数，并不是函数调用
+        var span=document.querySelector('.span');
+        var fn=function(){
+            var time=new Date();
+            span.innerHTML=time;
+        }
+        var intervalId=setInterval(fn,1000);
+        setTimeout(() => {
+            //取消间隔函数
+            clearInterval(intervalId);
+        }, 2000);
+    </script>
+</body>
+</html>
