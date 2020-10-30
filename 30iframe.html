@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        iframe{
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <iframe name="demo" src="http://bengenseo.com" frameborder="0"></iframe>
+    <script>
+        //两个API获取iframe的对象，window对象
+        // iframe.contentDocument;
+        // iframe.contentwindow;
+        //调用iframe
+        
+        console.log(window.frames["demo"]);
+    </script>
+</body>
+</html>

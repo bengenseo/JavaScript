@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31todoList案例</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        .pc.maxW1200{
+            width: 100%;
+            margin: 0 auto;
+            background: var(--Fdocks-color);
+        }
+        main{
+            width: 100%;
+        }
+        .pc .head{
+            height: 50px;
+            border-radius: 5px;
+            background: var(--black-color);
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+        }
+        .pc .head .logo{
+            font-size: 0.1rem;
+            color: var(--white-color);
+        }
+        .pc .head .search{
+            width: 300px;
+        }
+        .pc .head .search .s{
+            width: 100%;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .pc article{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pc article .doing,.pc article .done{
+            width: 670px;
+            max-width: 100%;
+            margin: 20px 0 0 0;
+        }
+        .pc article .doing .titleBox,.pc article .done .titleBox{
+            margin: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pc article .doing .titleBox span,.pc article .done .titleBox span{
+            background: var(--Fhaze-color);
+            width: 30px;
+            height: 30px;
+            padding-top: 4px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 0 10px;
+            font-size: 0.08rem;
+        }
+        .pc article .doing .title,.pc article .done .title{
+            font-size: 0.1rem;
+            font-weight: 600;
+        }
+        .pc article .doing li,.pc article .done li{
+            height: 40px;
+            background: var(--white-color);
+            margin: 20px 10px 0 10px;
+            padding: 0 10px;
+            border-radius: 3px;
+            border-left: 3px solid var(--Tmoss-color);
+            display: flex;
+            align-items: center;
+        }
+        .pc article .done li{
+            color: var(--Lgray-color);
+        }
+        .pc article .doing input,.pc article .done input{
+            width: 20px;
+            height: 20px;
+        }
+        .pc article .doing p,.pc article .done p{
+            font-size: 0.08rem;
+            margin: 0 20px;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <h1 class="logo">ToDoList</h1>
+        <div class="search">
+            <input class="s" type="text" placeholder="添加ToDoList">
+        </div>
+    </header>
+    <main>
+        <article>
+            <section class="doing">
+                <section class="titleBox">
+                    <h2 class="title">正在进行</h2>
+                    <span>1</span>
+                </section>
+                <ol class="list">
+                    <li>
+                        <input type="checkbox" name="" id="">
+                        <p>学习</p>
+                        <span>X</span>
+                    </li>
+                </ol>
+            </section>
+            <section class="done">
+                <section class="titleBox">
+                    <h2 class="title">已经完成</h2>
+                    <span>1</span>
+                </section>
+                <ul class="list">
+                    <li>
+                        <input type="checkbox" name="" id="" checked="checked">
+                        <p>学习</p>
+                        <span>X</span>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <address>
+            底部
+        </address>
+    </footer>
+    <script>
+        // html.classList.add("android");
+            (function(){
+                function bg(){
+                    var userAgent=navigator.userAgent;
+                    // window.innerWidth,可以获取HTML宽度
+                    var wh= window.innerWidth;
+                    var html=document.querySelector("html");
+                    html.className="";
+                    if(userAgent.indexOf("Windows")!=-1){
+                        html.classList.add("pc");
+                    }else if(userAgent.indexOf("Android")!=-1){
+                        html.classList.add("android");
+                    }
+                    if(wh<640){
+                        html.classList.add("minW640");
+                        html.classList.add("minW960");
+                        html.classList.add("minW1200");
+                    }else if(wh<960){
+                        html.classList.add("maxW640");
+                        html.classList.add("minW960");
+                        html.classList.add("minW1200");
+                    }else if(wh<1200){
+                        html.classList.add("maxW640");
+                        html.classList.add("maxW960");
+                        html.classList.add("minW1200");
+                    }else{
+                        html.classList.add("maxW640");
+                        html.classList.add("maxW960");
+                        html.classList.add("maxW1200");
+                    }
+                    // rem布局
+                    var danWei=wh/7.5;// 屏幕宽度除以7.5rem（单位不带入）比例为满屏
+                    html.style.fontSize=danWei+"px";
+                };
+                bg();
+                window.onresize=function(){
+                    bg();
+                };
+            })();
+    </script>
+</body>
+</html>

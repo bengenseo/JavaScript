@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30本地存储</title>
+</head>
+<body>
+    <h1 class="title"></h1>
+    <h2 class="time"></h2>
+    <article class="content"></article>
+    <script>
+        var title=document.querySelector(".title");
+        var time=document.querySelector(".time");
+        var content=document.querySelector(".content");
+        console.log([title]);
+        //localStorage 本地存储，只要不清除浏览器缓存，数据就一直存在。
+        //写法1
+        localStorage.newsTitle="Todoist:管理工作和生活的To Do List";
+        //写法2
+        localStorage["time"]="2020-10-30";
+        //写法3
+        var content1= localStorage.setItem("content1","ToDoList发现自己有点拖延症,就写了个APP,记录每天要做的事情。");
+        var content2=localStorage.setItem("content2","todolist是一款适合程序员管理日常工作的日志记录软件，可提供汉化支持。");
+        var content3=localStorage.setItem("content3","ListPal来列个表:极简多人在线协作 todolist 在线应用 (5票)。");
+        var content4=localStorage.setItem("content4","ToDoList发现自己有点拖延症,就写了个APP,记录每天要做的事情。");
+
+        title.innerText=localStorage.newsTitle;
+
+        time.innerText=localStorage["time"];
+
+        var contents="<p>"+localStorage.getItem("content1")+"</p>"+"<p>"+localStorage["content2"]+"</p>"+"<p>"+localStorage["content3"]+"</p>"+"<p>"+localStorage["content4"]+"</p>";
+        content.innerHTML=contents;
+        //清除一条数据
+        localStorage.removeItem("content");
+
+        //清除所有
+        //localStorage.clear();
+        console.log("localStorage",localStorage);
+
+
+        //sessionStorage 本地存储，只要关闭浏览器，数据就不存在。
+        // sessionStorage.setItem("linshi","临时存储");
+        console.log("sessionStorage",sessionStorage);
+    </script>
+</body>
+</html>
