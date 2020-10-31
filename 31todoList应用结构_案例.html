@@ -5,87 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>31todoList案例</title>
     <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/31sytle.css">
     <style>
-        .pc.maxW1200{
-            width: 100%;
-            margin: 0 auto;
-            background: var(--Fdocks-color);
-        }
-        main{
-            width: 100%;
-        }
-        .pc .head{
-            height: 50px;
-            border-radius: 5px;
-            background: var(--black-color);
-            display: flex;
-            justify-content:space-evenly;
-            align-items: center;
-        }
-        .pc .head .logo{
-            font-size: 0.1rem;
-            color: var(--white-color);
-        }
-        .pc .head .search{
-            width: 300px;
-        }
-        .pc .head .search .s{
-            width: 100%;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        .pc article{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .pc article .doing,.pc article .done{
-            width: 670px;
-            max-width: 100%;
-            margin: 20px 0 0 0;
-        }
-        .pc article .doing .titleBox,.pc article .done .titleBox{
-            margin: 0 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .pc article .doing .titleBox span,.pc article .done .titleBox span{
-            background: var(--Fhaze-color);
-            width: 30px;
-            height: 30px;
-            padding-top: 4px;
-            text-align: center;
-            border-radius: 15px;
-            margin: 0 10px;
-            font-size: 0.08rem;
-        }
-        .pc article .doing .title,.pc article .done .title{
-            font-size: 0.1rem;
-            font-weight: 600;
-        }
-        .pc article .doing li,.pc article .done li{
-            height: 40px;
-            background: var(--white-color);
-            margin: 20px 10px 0 10px;
-            padding: 0 10px;
-            border-radius: 3px;
-            border-left: 3px solid var(--Tmoss-color);
-            display: flex;
-            align-items: center;
-        }
-        .pc article .done li{
-            color: var(--Lgray-color);
-        }
-        .pc article .doing input,.pc article .done input{
-            width: 20px;
-            height: 20px;
-        }
-        .pc article .doing p,.pc article .done p{
-            font-size: 0.08rem;
-            margin: 0 20px;
-            flex: 1;
-        }
+        
     </style>
 </head>
 <body>
@@ -100,28 +22,16 @@
             <section class="doing">
                 <section class="titleBox">
                     <h2 class="title">正在进行</h2>
-                    <span>1</span>
+                    <span>0</span>
                 </section>
-                <ol class="list">
-                    <li>
-                        <input type="checkbox" name="" id="">
-                        <p>学习</p>
-                        <span>X</span>
-                    </li>
-                </ol>
+                <ol class="list"></ol>
             </section>
             <section class="done">
                 <section class="titleBox">
                     <h2 class="title">已经完成</h2>
-                    <span>1</span>
+                    <span>0</span>
                 </section>
-                <ul class="list">
-                    <li>
-                        <input type="checkbox" name="" id="" checked="checked">
-                        <p>学习</p>
-                        <span>X</span>
-                    </li>
-                </ul>
+                <ul class="list"></ul>
             </section>
         </article>
     </main>
@@ -131,45 +41,111 @@
         </address>
     </footer>
     <script>
-        // html.classList.add("android");
-            (function(){
-                function bg(){
-                    var userAgent=navigator.userAgent;
-                    // window.innerWidth,可以获取HTML宽度
-                    var wh= window.innerWidth;
-                    var html=document.querySelector("html");
-                    html.className="";
-                    if(userAgent.indexOf("Windows")!=-1){
-                        html.classList.add("pc");
-                    }else if(userAgent.indexOf("Android")!=-1){
-                        html.classList.add("android");
-                    }
-                    if(wh<640){
-                        html.classList.add("minW640");
-                        html.classList.add("minW960");
-                        html.classList.add("minW1200");
-                    }else if(wh<960){
-                        html.classList.add("maxW640");
-                        html.classList.add("minW960");
-                        html.classList.add("minW1200");
-                    }else if(wh<1200){
-                        html.classList.add("maxW640");
-                        html.classList.add("maxW960");
-                        html.classList.add("minW1200");
-                    }else{
-                        html.classList.add("maxW640");
-                        html.classList.add("maxW960");
-                        html.classList.add("maxW1200");
-                    }
-                    // rem布局
-                    var danWei=wh/7.5;// 屏幕宽度除以7.5rem（单位不带入）比例为满屏
-                    html.style.fontSize=danWei+"px";
-                };
-                bg();
-                window.onresize=function(){
-                    bg();
-                };
-            })();
+        //时间
+        var inputDom=document.querySelector(".s");
+        //将json格式的字符串转化为对象
+        if(localStorage.toDoList==undefined){
+            var toDoList=[];
+        }else{
+            var toDoList=JSON.parse(localStorage.toDoList);
+        }
+        var doingListDiv=document.querySelector(".doing .list");
+        var doneListDiv=document.querySelector(".done .list");
+        var mainDiv=document.querySelector("main");
+        //监听按键事件，获取input
+        inputDom.onkeydown=function(key){
+            //当按下回车键的时候，获取输入框内容，并且生成未完成列表
+            if(key.key=="Enter"){
+                var value=inputDom.value;
+                var time=new Date();
+                var Y=time.getFullYear();
+                var M=time.getMonth()+1;
+                var D=time.getDate();
+                var H=time.getHours();
+                var m=time.getMinutes();
+                var s=time.getSeconds();
+                var homeTime=`${Y}-${M}-${D} ${H}:${m}:${s}`;
+                var objItem={
+                    hTime:homeTime,
+                    content:value,
+                    isDone:false,
+                }
+                //添加value
+                toDoList.push(objItem);
+                render(toDoList);
+                //清空value值
+                inputDom.value="";
+            };
+            // console.log(key);
+        }
+        function render(toDoList){
+            //将对象转为json格式的字符串
+            localStorage.toDoList=JSON.stringify(toDoList);
+            //每一次渲染之前，清空内容；
+            doingListDiv.innerHTML="";
+            doneListDiv.innerHTML="";
+            toDoList.forEach(function(item,i){
+                var listItem=document.createElement("li");
+                listItem.className="listItem";
+                if(item.isDone){
+                    listItem.innerHTML=`
+                        <input type="checkbox" name="" id="" data-index="${i}" checked="checked">
+                        <p>${item.content}</p><span style="margin-right:10px">添加时间：${item.hTime}</span>
+                        <span class="del" data-index="${i}">X</span>
+                    `;
+                    doneListDiv.appendChild(listItem);
+                    doneAdd();
+                    doingAdd();
+                }else{
+                    listItem.innerHTML=`
+                        <input type="checkbox" name="" id="" data-index="${i}">
+                        <p>`+item.content+`</p><span style="margin-right:10px">添加时间：${item.hTime}</span>
+                        <span class="del" data-index="${i}">X</span>
+                    `;
+                    doingListDiv.appendChild(listItem);
+                    doneAdd();
+                    doingAdd();
+                }
+            });
+        }
+        render(toDoList);
+        function doingAdd(){
+            var doingSpan=document.querySelector(".doing span");
+            var doingNum=String(doingListDiv.childElementCount);
+            doingSpan.innerText=doingNum;
+        }
+        function doneAdd(){
+            var doneSpan=document.querySelector(".done span");
+            var doneNum=String(doneListDiv.childElementCount);
+            doneSpan.innerText=doneNum;
+        }
+        function timeEnd(){
+            var endTime=new Date();
+        }
+        doingListDiv.onchange=function(e){
+            //通过事件对象，获取索引值
+            var index=parseInt(e.target.dataset.index);//转字符串
+            // console.log(index);
+            toDoList[index].isDone=true;
+            render(toDoList);
+        }
+        doneListDiv.onchange=function(e){
+            //通过事件对象，获取索引值
+            var index=parseInt(e.target.dataset.index);//转字符串
+            // console.log(index);
+            toDoList[index].isDone=false;
+            render(toDoList);
+        }
+        mainDiv.onclick=function(e){
+            if(e.target.className=="del"){
+                var index=parseInt(e.target.dataset.index);
+                toDoList.splice(index,1);
+                render(toDoList);
+                doneAdd();
+                doingAdd();
+            }
+        }
     </script>
+    <script src="js/31layout.js"></script>
 </body>
 </html>
