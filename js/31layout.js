@@ -29,7 +29,7 @@
             html.classList.add("maxW1200");
         }
         // rem布局
-        var danWei=wh/7.5;// 屏幕宽度除以7.5rem（单位不带入）比例为满屏
+        var danWei=wh/3.75;// 屏幕宽度除以7.5rem（单位不带入）比例为满屏
         html.style.fontSize=danWei+"px";
     };
     bg();

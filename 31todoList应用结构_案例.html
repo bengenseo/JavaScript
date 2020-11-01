@@ -43,10 +43,10 @@
     <script>
         //时间
         var inputDom=document.querySelector(".s");
-        //将json格式的字符串转化为对象
         if(localStorage.toDoList==undefined){
             var toDoList=[];
         }else{
+            //将json格式的字符串转化为对象
             var toDoList=JSON.parse(localStorage.toDoList);
         }
         var doingListDiv=document.querySelector(".doing .list");

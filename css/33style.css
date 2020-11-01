@@ -1,0 +1,104 @@
+.videoList{
+    width: 100vw;
+}
+.videoList .videoItem .videoTop{
+    position: relative;
+}
+.videoList .videoItem .videoTop .img{
+    width: 100vw;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: var(--black-color);
+}
+.videoList .videoItem .videoTop .title{
+    padding: 0.2rem;
+    font-size: 0.25rem;
+    color: var(--white-color);
+    text-align: justify;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.videoList .videoItem .videoTop .play{
+    width: 100vw;
+    height: 2.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../image/33play.png) no-repeat;
+    background-position: center;
+    background-size: auto 30%;
+    border-radius: 1rem;
+    margin: 0 auto;
+}
+.videoList .videoItem .videoTop .playNum{
+    padding: 0 0.1rem 0.1rem 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.15rem;
+    color: #dbdbdb;
+}
+.videoList .videoItem .videoTop .icon{
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-right: 0.1rem;
+    display: inline-block;
+    background: url(../image/33eye.png) no-repeat center;
+    background-size: 100% auto;
+}
+.videoList .videoItem .videoBottom{
+    display: flex;
+    padding: 0.1rem 0.2rem;
+}
+.videoList .videoItem .videoBottom .author_img{
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-right: 0.1rem;
+    border-radius: 0.15rem;
+}
+.videoList .videoItem .videoBottom .authorName{
+    font-size: 0.15rem;
+    font-weight: 700;
+    margin-bottom: 0.05rem;
+}
+.videoList .videoItem .videoBottom .comment{
+    font-size: 0.1rem;
+}
+.playPage{
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background:#000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.playPage video{
+    width: 100vw;
+    height: 100vh;
+}
+.playPage .close{
+    z-index: 2;
+    width: 0.3rem;
+    height: 0.3rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    background: url(../image/33del.png)no-repeat center;
+    background-size: auto 100%;
+    border-radius: 0.25rem;
+}
+.download{
+    width: 100vw;
+    height: 0.5rem;
+    font-size: 0.2rem;
+    background:#dbdbdb;
+    line-height: 0.5rem;
+    text-align: center;
+}

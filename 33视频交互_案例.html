@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33视频交互_实例</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/33style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <ul class="videoList">
+                <!-- <li class="videoItem">
+                    <section class="videoTop">
+                        <div class="img" style="background-image: url(https://tukuimg.bdstatic.com/processed/b97325107b1824ba81cdd7e507503bcf.jpeg@s_0,w_828,h_465,q_100);"></div>
+                        <h1 class="title">看热闹的正确打开方式，你大爷还是你大爷。</h1>
+                        <button type="button" class="play"></button>
+                        <div class="playNum"><span class="icon"></span><span>225</span>次播放</div>
+                    </section>
+                    <section class="videoBottom">
+                        <div class="author_img" style="background: url(https://picrmb01.bdstatic.com/bjh/user/3c63bc21eb09ad8debc77e1d7c7d6fcc.jpeg@s_0,w_68,h_68,q_80) no-repeat;"></div>
+                        <div class="nickName">
+                            <h2 class="authorName">百思爆笑</h2>
+                            <p class="comment">人家都没许愿呢～</p>
+                        </div>
+                    </section>
+                </li> -->
+            </ul>
+            <div class="download">加载更多</div>
+            <div class="playPage">
+                <video controls="controls" src="http://uvideo.spriteapp.cn/video/2020/0717/5f11849ede438_wpd.mp4"></video>
+                <div class="close"></div>
+            </div>
+            
+        </article>
+        
+    </main>
+    <script src="js/31layout.js"></script>
+    <script src="js/33getAjax.js"></script>
+    <script>
+        var httpUrl="https://api.apiopen.top/getJoke?page=1&count=20&type=video";
+        var videoListDom=document.querySelector(".videoList");
+        var playPageDom=document.querySelector(".playPage");
+        var videoDom=document.querySelector(".playPage video");
+        var closeDom=document.querySelector(".close");
+        var downLoadDom=document.querySelector(".download");
+        var num=1;
+        var videoList=[];
+        getAjax(httpUrl,function(xhr){
+            var resultObj=JSON.parse(xhr.response);
+            // console.log(resultObj);
+            videoList=resultObj.result;
+            renderVideoList(videoList);
+        });
+        function renderVideoList(videoList) {
+            videoList.forEach(function(item,i) {
+                var videoItemDom=document.createElement("li");
+                videoItemDom.className="videoItem";
+                if(item.top_comments_content==null){
+                    item.top_comments_content="此用户太懒，没有写简介！";
+                }
+                videoItemDom.innerHTML=`
+                    <section class="videoTop">
+                        <div class="img" style="background-image: url(${item.thumbnail});"></div>
+                        <h1 class="title">${item.text}</h1>
+                        <button type="button" class="play" data-index="${i}"></button>
+                        <div class="playNum"><span class="icon"></span><span>${item.up}</span>次播放</div>
+                    </section>
+                    <section class="videoBottom">
+                        <div class="author_img" style="background: url(${item.header}) no-repeat;"></div>
+                        <div class="nickName">
+                            <h2 class="authorName">${item.name}</h2>
+                            <p class="comment">${item.top_comments_content}</p>
+                        </div>
+                    </section>
+                `;
+            videoListDom.appendChild(videoItemDom);
+            });
+        };
+        videoListDom.addEventListener("click",function(e){
+            // console.log(e);
+            if(e.target.className="play"){
+                var index=e.target.dataset.index;
+                var item=videoList[index];
+                playPageDom.style.display="block";
+                videoDom.src=item.video;
+                videoDom.play();
+            }
+        });
+        closeDom.onclick=function(){
+            playPageDom.style.display="none";
+            videoDom.pause();
+        }
+        downLoadDom.onclick=function(){
+            num ++;
+            var httpUrl="https://api.apiopen.top/getJoke?page="+num+"&count=20&type=video";
+            getAjax(httpUrl,function(xhr){
+                var resultObj=JSON.parse(xhr.response);
+                console.log(resultObj);
+                videoList=resultObj.result;
+                videoListDom.innerHTML="";
+                renderVideoList(videoList);
+                scrollTo(0,0);
+            });
+        }
+    </script>
+</body>
+</html>

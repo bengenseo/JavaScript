@@ -59,6 +59,7 @@
 ol,ul,nav {list-style:none}
 a,a:hover {text-decoration:none}
 input{border: none;outline: none;}
+button{border: none;}
 address,cite,dfn,em,var {font-style:normal}
 fieldset,img {border:0};
 img{max-width:100%;};
