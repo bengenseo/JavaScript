@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35贪吃蛇</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/29Rem.js"></script>
+    <script src="js/34swiperEvent_封装.js"></script>
+    <link rel="stylesheet" href="css/35style.css">
+</head>
+<body>
+    <!-- 
+        1.贪吃蛇页面结构和样式
+        2.能够绘制蛇
+        3.能够绘制食物
+        4.让蛇运动起来
+        5.蛇能吃食物
+        6.蛇碰到自己就会失败
+     -->
+    <header>
+        <h1>
+            <div class="score">
+                score：
+                <span class="num">0</span>
+            </div>
+            <div class="pause">暂停</div>
+        </h1>
+    </header>
+    <main>
+        <article>
+            <ul class="game">
+            </ul>
+        </article>
+        <section class="gaming">
+            <div class="start">开始</div>
+        </section>
+        <section class="endGame">
+            <h2>最终得分：<span class="num">0</span></h2>
+            <div class="reStart">重新开始</div>
+        </section>
+    </main>
+    <script>
+        var game=document.querySelector(".game");
+        var startDom=document.querySelector(".start");
+        var geziDom=document.querySelector(".gezi");
+        var snake=[{x:0,y:1},{x:1,y:1},{x:2,y:1}];
+        var snakeFood={
+            x:10,
+            y:10
+        };
+        //初始化得分
+        var score=0;
+        var numDiv=document.querySelectorAll(".num");
+        var reStartDom=document.querySelector(".reStart");
+        var gamingDom=document.querySelector(".gaming");
+        var pauseDom=document.querySelector(".pause");
+        var endGame=document.querySelector(".endGame");
+        var interId;
+        // console.log(numDiv);
+        //定义设运动的方向
+        var direction = {x:-1,y:0};
+        function renderGezi() {
+            for(var i=0;i<20;i++){
+                for(var j=0;j<15;j++){
+                    var liDiv=document.createElement("li");
+                    liDiv.className="gezi";
+                    liDiv.id="x"+j+"y"+i;
+                    game.appendChild(liDiv);
+                }
+            }
+        };
+        renderGezi();
+        //随机创建蛇
+        function createSnake(){
+            var randomX=parseInt(Math.random()*13);
+            var randomY=parseInt(Math.random()*20);
+            snake=[];
+            for(i=0;i<3;i++){
+                snake.push({x:randomX+i,y:randomY});
+            };
+        };
+        createSnake();
+        //获取蛇的坐标
+        function renderSnake() {
+            snake.forEach(function(item,i){
+                var snakeBody=document.querySelector("#x"+item.x+"y"+item.y);
+                snakeBody.className="gezi snake";
+            })
+        };
+        renderSnake();
+        //渲染食物
+        function renderFood() {
+            var randomX=parseInt(Math.random()*15);
+            var randomY=parseInt(Math.random()*20);
+            var foodDiv=document.querySelector("#x"+randomX+"y"+randomY);
+            if(foodDiv.className=="gezi snake"){
+                renderFood();
+            }else{
+                foodDiv.className="gezi food"
+            }
+        };
+        renderFood();
+        function gameIng(){
+            interId=setInterval(function(){
+                var headerX=snake[0].x+direction.x;
+                var headerY=snake[0].y+direction.y;
+                if(headerX<0){
+                    headerX=14;
+                }
+                if( headerX>14){
+                    headerX=0;
+                }
+                if(headerY<0){
+                    headerY=19;
+                }
+                if( headerY>19){
+                    headerY=0;
+                }
+                var snakeHeader={x:headerX,y:headerY};
+                //调用isSnake函数
+                isSnake(snakeHeader);
+                //判断食物是否被蛇吃了。
+                if(!isFood(snakeHeader)){
+                    //将删除的蛇，找到相对于的dom，将其class类名修改成正常的gezi
+                    var snakeFooter=snake.pop();
+                    var snakeFooterDiv=document.querySelector("#x"+snakeFooter.x+"y"+snakeFooter.y);
+                    snakeFooterDiv.className="gezi";
+                };
+                snake.unshift(snakeHeader);
+                renderSnake();
+            },300);
+        };
+        
+        function isFood(snakeHeader){
+            var newHeader=document.querySelector("#x"+snakeHeader.x+"y"+snakeHeader.y);
+            if(newHeader.className=="gezi food"){
+                score++;
+                numDiv.forEach(function(item,i){
+                    item.innerHTML=score;
+                });
+                renderFood();
+                return true;
+            }else{
+                return false;
+            }
+        };
+        //判断是否吃到自己
+        function isSnake(snakeHeader){
+            var newHeader=document.querySelector("#x"+snakeHeader.x+"y"+snakeHeader.y);
+            if(newHeader.className=="gezi snake"){
+                endGame.style.display="flex";
+                renderFood();
+                clearInterval(interId);
+            }
+        };
+        var body=document.querySelector("body");
+        body.addEventListener("keydown",function(e){
+            if(e.key=="ArrowUp"&&direction.y!=1){
+                // console.log("上");
+                direction={x:0,y:-1};
+            }
+            if(e.key=="ArrowDown"&&direction.y!=-1){
+                // console.log("下");
+                direction={x:0,y:1};
+            }
+            if(e.key=="ArrowLeft"&&direction.x!=1){
+                // console.log("左");
+                direction={x:-1,y:0};
+            }
+            if(e.key=="ArrowRight"&&direction.x!=-1){
+                // console.log("右");
+                direction={x:1,y:0};
+            }
+            // console.log(e);
+        });
+        bgEvent.init(body);
+        body.addEvent("swiperLeft",function(e){
+            if(direction.x!=1){
+                direction={x:-1,y:0};
+            }
+        });
+        body.addEvent("swiperRight",function(e){
+            if(direction.x!=-1){
+                direction={x:1,y:0};
+            }
+        });
+        body.addEvent("swiperTop",function(e){
+            if(direction.y!=1){
+                direction={x:0,y:-1};
+            }
+        });
+        body.addEvent("swiperBottom",function(e){
+            if(direction.y!=-1){
+                direction={x:0,y:1};
+            }
+        });
+        startDom.onclick=function(){
+            gamingDom.style.display="none";
+            gameIng();
+        }
+        reStartDom.onclick=function(){
+            location.reload();
+            gameIng();
+            endGame.style.display="none";
+        }
+        pauseDom.onclick=function(e){
+            clearInterval(interId);
+            console.log(e);
+        }
+    </script>
+</body>
+</html>

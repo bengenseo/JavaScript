@@ -19,6 +19,10 @@
                     html.classList.add("pc");
                 }else if(userAgent.indexOf("Android")!=-1){
                     html.classList.add("android");
+                }else if(userAgent.indexOf("iPhone")!=-1){
+                    html.classList.add("iPhone");
+                }else{
+                    html.classList.add("mobile");
                 }
                 if(width<640){
                     html.classList.add("minW640");
@@ -41,13 +45,12 @@
                 var danWei=width/7.5;// 屏幕宽度除以7.5rem（单位不带入）比例为满屏
                 html.style.fontSize=danWei+"px";
             };
-            bg();
+            
             window.onresize=function(){
                 bg();
             };
+            bg();
         })();
-        
-        console.log(navigator);
     </script>
 </body>
 </html>

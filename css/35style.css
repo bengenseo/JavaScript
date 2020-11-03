@@ -1,0 +1,104 @@
+body{
+    background: var(--black-color);
+}
+.mobile h1{
+    height: 1rem;
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mobile .score{
+    color: var(--white-color);
+    font-size: 0.5rem;
+}
+.mobile .score .num{
+    font-size: 0.5rem;
+}
+.mobile .pause{
+    padding: 0.1rem;
+    background: var( --Lgray-color);
+    color: var(--white-color);
+    border-radius: 0.1rem;
+}
+.mobile article{
+    padding: 0.5rem;
+}
+.mobile .game{
+    width: 6.495rem;
+    height: 8.66rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* border-top: 1px solid #fff;
+    border-left: 1px solid #fff; */
+    border: 1px solid #fff;
+    box-sizing: content-box;
+}
+.mobile .game .gezi{
+    width: 0.433rem;
+    height: 0.433rem;
+    background: var(--black-color);
+    /* border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff; */
+}
+.mobile .game .gezi.snake{
+    background: var(--white-color);
+    width: 0.433rem;
+    height: 0.433rem;
+    border: 1px solid #fff;
+}
+.mobile .game .gezi.food{
+    background: var(--THmoss-color);
+    width: 0.433rem;
+    height: 0.433rem;
+    border: 1px solid #fff;
+}
+.mobile .gaming{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--Lgray-color);
+}
+.mobile .start{
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: var(--white-color);
+    border-radius: 0.5rem;
+    background: var(--Fcooler-color);
+}
+.mobile .endGame{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--THgranite-color);
+}
+.mobile .endGame h2{
+    font-size: 0.7rem;
+    color: var(--white-color);
+    margin-bottom: 1rem;
+}
+.mobile .endGame h2 .num{
+    font-size: 0.7rem;
+}
+.mobile .endGame .reStart{
+    width: 2rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    color: var(--Fmoss-color);
+    background: var(--Ogranite-color);
+}
