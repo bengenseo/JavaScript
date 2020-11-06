@@ -138,6 +138,7 @@
                 score++;
                 numDiv.forEach(function(item,i){
                     item.innerHTML=score;
+                    // console.log([numDiv]);
                 });
                 renderFood();
                 return true;
@@ -206,7 +207,7 @@
         }
         pauseDom.onclick=function(e){
             clearInterval(interId);
-            console.log(e);
+            // console.log(e);
         }
     </script>
 </body>

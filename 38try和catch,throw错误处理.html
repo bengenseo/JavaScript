@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38错误处理</title>
+</head>
+<body>
+    <script>
+        try{//允许有错，还会执行后面代码
+            throw"自定义错误";
+        }catch(e){
+            //提示try里的错误代码
+            console.log(e);
+        }
+        console.log("66666666");
+        //自定义报错提示
+        throw"自定义错误";
+    </script>
+</body>
+</html>

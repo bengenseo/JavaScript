@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39天气预报应用</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        main{
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search{
+            width: 200px;
+            height: 50px;
+            padding: 0 10px;
+            border: 1px solid var(--THhaze-color);
+        }
+        .searBox ul{
+            padding: 5px 10px;
+        }
+        .searBox ul li{
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="searBox">
+            <input list="itemList" class="search" type="text">
+            <datalist id="itemList">
+                <!-- <option data-value="历史1">历史1</option> -->
+            </datalist>
+        </section>
+        <h1>城市：<span class="city"></span></h1>
+        <ul>
+            <li>
+                观测时间：
+                <span class="obsTime">"2020-11-05T11:50+08:00"</span>
+            </li>
+            <li>
+                风向：
+                <span class="windDir">东风</span>
+            </li>
+            <li>
+                阴晴：
+                <span  class="text">多云</span>
+            </li>
+            <li>
+                风向360角度：
+                <span class="wind360">80</span>
+            </li>
+            <li>
+                风力等级：
+                <span class="windScale">2</span>
+            </li>
+            <li>
+                风速：公里/小时
+                <span class="windSpeed">7</span>
+            </li>
+            <li>
+                温度：
+                <span class="temp">23</span>
+                °
+            </li>
+            <li>
+                体感温度：
+                <span class="feelsLike">23</span>
+                °
+            </li>
+        </ul>
+        <section>
+            <h2 class="province"></h2>
+        </section>
+    </main>
+    <script src="js/33getAjax.js"></script>
+    <script src="js/39Country.js"></script>
+    <script>
+        var searchDom=document.querySelector(".search");
+        var cityDiv=document.querySelector(".city");
+        var provinceDiv=document.querySelector(".province");
+        var shiDiv=document.querySelectorAll(".shi");
+        var itemListDiv=document.querySelector("#itemList");
+        function now(im){
+            var obsTimeDiv=document.querySelector(".obsTime");
+            var windDirDiv=document.querySelector(".windDir");
+            var textDiv=document.querySelector(".text");
+            var wind360Div=document.querySelector(".wind360");
+            var windScaleDiv=document.querySelector(".windScale");
+            var windSpeedDiv=document.querySelector(".windSpeed");
+            var tempDiv=document.querySelector(".temp");
+            var feelsLikeDiv=document.querySelector(".feelsLike");
+            obsTimeDiv.innerText=im.obsTime;
+            windDirDiv.innerText=im.windDir;
+            textDiv.innerText=im.text;
+            wind360Div.innerText=im.wind360;
+            windScaleDiv.innerText=im.windScale;
+            windSpeedDiv.innerText=im.windSpeed;
+            tempDiv.innerText=im.temp;
+            feelsLikeDiv.innerText=im.feelsLike;
+        }
+        var httpUrl="https://devapi.qweather.com/v7/weather/now?location=101300203&key=4055b0a3895f4138af22d5fe1bdf3fec";
+        getAjax(httpUrl,function(res){
+            // console.log(res);
+            var responseDom=JSON.parse(res.response);
+            var nowDom=responseDom.now;
+            cityDiv.innerText="龙州";
+            now(nowDom);
+            // console.log(nowDom);
+        });
+        if(localStorage.list==undefined){
+            var list=[];
+        }else{
+            //将json格式的字符串转化为对象
+            var list=JSON.parse(localStorage.list);
+        }
+        searchDom.onkeydown=function(e){
+            if(e.key=="Enter"){
+                var valueDom=searchDom.value;
+                country.forEach(function(item,i){
+                    // console.log(item.Location_ID,item.Location_Name_EN,item.City_Name);
+                    if(valueDom==item.Location_ID||valueDom==item.Location_Name_EN||valueDom==item.City_Name){
+                        var cityDom=item.Location_ID;
+                        cityDiv.innerText=item.City_Name;
+                        // console.log(item.City_Name);
+                        httpUrl="https://devapi.qweather.com/v7/weather/now?location="+cityDom+"&key=4055b0a3895f4138af22d5fe1bdf3fec";
+                        getAjax(httpUrl,function(res){
+                            // console.log(res);
+                            var responseDom=JSON.parse(res.response);
+                            nowDom=responseDom.now;
+                            now(nowDom);
+                            // console.log(nowDom);
+                        });
+                    }
+                    // else{
+                    //     provinceDiv.innerHTML=valueDom+"没有具体天气，请缩小地区"
+                    // }
+                });
+                // console.log([searchDom.value]);
+                
+                // console.log(provinceDiv);
+                var valueItem={
+                    value:valueDom
+                }
+                list.push(valueItem);
+                renderValue(list);
+            }
+        }
+        function renderValue(h) {
+            localStorage.list=JSON.stringify(h);
+            itemListDiv.innerHTML="";
+            list.forEach(function(item,i){
+                if(i>list.length-6){
+                    var optionDiv= document.createElement("option");
+                    optionDiv.className="opItem";
+                    optionDiv.innerHTML=item.value;
+                    itemListDiv.appendChild(optionDiv);
+                }
+            });
+        }
+        renderValue(list);
+        // localStorage.removeItem("toDoList")
+        console.log(JSON.parse(localStorage.list));
+    </script>
+</body>
+</html>
