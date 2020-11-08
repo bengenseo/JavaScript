@@ -109,7 +109,7 @@
             var nowDom=responseDom.now;
             cityDiv.innerText="龙州";
             now(nowDom);
-            // console.log(nowDom);
+            console.log(res);
         });
         if(localStorage.list==undefined){
             var list=[];
@@ -148,6 +148,7 @@
                 list.push(valueItem);
                 renderValue(list);
             }
+            // console.log(e);
         }
         function renderValue(h) {
             localStorage.list=JSON.stringify(h);
@@ -158,12 +159,13 @@
                     optionDiv.className="opItem";
                     optionDiv.innerHTML=item.value;
                     itemListDiv.appendChild(optionDiv);
+                    
                 }
             });
         }
         renderValue(list);
-        // localStorage.removeItem("toDoList")
-        console.log(JSON.parse(localStorage.list));
+        // localStorage.removeItem("list")
+        // console.log(JSON.parse(localStorage.list));
     </script>
 </body>
 </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40SVG几何图形</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        main{
+            width: 500px;
+            margin: 20px auto;
+        }
+        svg{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <ul>
+                <li>
+                    <h2>矩形</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"><rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" /></svg>
+                </li>
+                <li>
+                    <h2>圆形</h2>
+                    <svg><circle cx="100" cy="50" r="40" stroke="black"
+                        stroke-width="2" fill="red"/></svg>
+                </li>
+                <li>
+                    <h2>椭圆</h2>
+                    <svg><ellipse cx="300" cy="80" rx="100" ry="50"
+                        style="fill:yellow;stroke:purple;stroke-width:2"/></svg>
+                </li>
+                <li>
+                    <h2>直线</h2>
+                    <svg><line x1="0" y1="0" x2="200" y2="200"
+                        style="stroke:rgb(255,0,0);stroke-width:2"/></svg>
+                </li>
+                <li>
+                    <h2>多边形</h2>
+                    <svg><polygon points="200,10 250,190 160,210"
+                        style="fill:lime;stroke:purple;stroke-width:1"/></svg>
+                </li>
+                <li>
+                    <h2>曲线</h2>
+                    <svg><polyline points="20,20 40,25 60,40 80,120 120,140 200,180"
+                        style="fill:none;stroke:black;stroke-width:3" /></svg>
+                </li>
+                <li>
+                    <h2>路径</h2>
+                    <svg><path d="M150 0 L75 200 L225 200 L300 200 Z" /></svg>
+                </li>
+                <li>
+                    <h2>文本</h2>
+                    <svg><text x="5" y="20" fill="red" transform="rotate(30 20,40)">I love SVG</text></svg>
+                </li>
+                <li>
+                    <h2>stroke属性</h2>
+                    <svg><path id="copy" stroke="red" d="M5 20 l215 0" /></svg>
+                </li>
+                <li>
+                    <h2>复制</h2>
+                    <svg><use href="#copy"></use></svg>
+                </li>
+                <li>
+                    <h2>组</h2>
+                    <svg>
+                        <g fill="none">
+                            <path stroke="red" d="M5 20 l215 0" />
+                            <path stroke="blue" d="M5 40 l215 0" />
+                            <path stroke="black" d="M5 60 l215 0" />
+                        </g>
+                    </svg>
+                </li>
+                <li>
+                    <h2>引用</h2>
+                    <svg>
+                        <defs>
+                            <g id="copy1" fill="none">
+                                <path stroke="red" d="M5 20 l215 0" />
+                                <path stroke="blue" d="M5 40 l215 0" />
+                                <path stroke="black" d="M5 60 l215 0" />
+                            </g>
+                        </defs>
+                        <use href="#copy1"></use>
+                    </svg>
+                </li>
+            </ul>
+        </article>
+    </main>
+</body>
+</html>
