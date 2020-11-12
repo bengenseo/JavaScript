@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40svg柱状图</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        main{
+            width: 900px;
+            margin: 20px auto;
+        }
+        .axis{
+            stroke:rgb(255,0,0);
+            stroke-width:1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <svg height="900" width="900">
+            <g>
+                <!--横轴-->
+                <line class="axis" x1="0" y1="700" x2="850" y2="700"></line>
+                <!--箭头-->
+                <path class="axis" d="M 830 690,L850 700,L830 710 "></path>
+                
+
+                <!--纵轴-->
+                <line class="axis" x1="50" y1="750" x2="50" y2="50"></line>
+                <!--箭头-->
+                <path class="axis" d="M 40 70,L50 50,L60 70 "></path>
+                
+                
+            </g>
+            <g id="Xkedu">
+                <text x="830" y="730">时间</text>
+                <!--横坐标-->
+                <!-- <line class="axis" x1="70" y1="700" x2="70" y2="680"></line> -->
+            </g>
+            <g id="Ykedu">
+                <text x="0" y="70">订单</text>
+                <!--纵坐标-->
+                <!-- <line class="axis" x1="50" y1="680" x2="70" y2="680"></line> -->
+            </g>
+            <g id="barList">
+                <!-- <rect x="" y="" width="20" height=""></rect> -->
+            </g>
+            <g id="polyList">
+                <!-- <polyline points="20,20 40,25 60,40 80,120 120,140 200,180"
+                        style="fill:none;stroke:black;stroke-width:3" /> -->
+            </g>
+        </svg>
+    </main>
+    <script>
+        var data=[{data:"星期一",order:"1000",},{data:"星期二",order:"1300",},{data:"星期三",order:"1200",},{data:"星期四",order:"1700",},{data:"星期五",order:"1500",},{data:"星期六",order:"1100",},{data:"星期七",order:"1400",},];
+        // console.log(data);
+        //X,Y刻度
+        var jgKudu=800/data.length;
+        var YjgKudu=750/13;
+
+        var barList=document.querySelector("#barList");
+        var polyList=document.querySelector("#polyList");
+
+        for(var i=0;i<data.length;i++){
+            renderX(i)
+        };
+
+        for(var j=1;j<=10;j++){
+            var Ykedu=document.querySelector("#Ykedu");
+            Ykedu.innerHTML+=`<line class="axis" x1="50" y1="${700-YjgKudu*j}" x2="60" y2="${700-YjgKudu*j}"></line>
+            <text x="0" y="${700-YjgKudu*j}">${200*j}</text>`;
+        };
+        function renderX(h) {
+            var Xkedu=document.querySelector("#Xkedu");
+            var lineDom=document.createElement("line");
+            lineDom.className="axis";
+            lineDom.setAttribute("x1",80+jgKudu*h);
+            lineDom.setAttribute("x2",80+jgKudu*h);
+            lineDom.setAttribute("y1","700");
+            lineDom.setAttribute("y2","680");
+            Xkedu.innerHTML+=lineDom.outerHTML+`<text x="${60+jgKudu*h}" y="730">${data[h].data}</text>`;
+            //随机颜色
+            var r=parseInt(Math.random()*255);
+            var g=parseInt(Math.random()*255);
+            var b=parseInt(Math.random()*255);
+            var color=`rgb(${r},${g},${b})`;
+            //绘制柱状
+            barList.innerHTML+=`<rect x="${70+jgKudu*h}" y="${700-(YjgKudu*(data[h].order/200))}" width="20" height="${YjgKudu*(data[h].order/200)}" fill="${color}"></rect>`;
+        }
+        //折线图
+        // var polylineDom=document.createElement("polyline");
+        // polyList.appendChild(polylineDom);
+        polyList.innerHTML=`<polyline points="20,20 40,25 60,40 80,120 120,140 200,180 200,180"
+                        style="fill:none;stroke:red;stroke-width:1" />`;
+        var po=document.querySelector("#polyList polyline");
+        data.forEach(function(item,index){
+                po.points[index]["x"]=80+jgKudu*index;
+                po.points[index]["y"]=700-(YjgKudu*(data[index].order/200));
+        });
+        // po.setAttribute("fill","color")
+    </script>
+</body>
+</html>
