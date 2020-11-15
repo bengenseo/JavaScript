@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42正则</title>
+</head>
+<body>
+    <script>
+        //正则 字面量
+        // i 忽视大小写
+        // g 执行全局匹配
+        // m 执行多行匹配
+        // /^adc[0-9]$/
+        // [0-9] 多个，0到9     0 1 2 3 4 5 6 7 8 9
+        // [^abc] 中括号里的^ 是不包含
+        // ^ 开头 $结尾
+        // [abc|asd|qwe] /abc|asd|qwe/ 查找任何以 | 分隔的选项。
+        // [a-z] 查找小写a到小写z
+        // [A-Z] 查找大写A到大写Z
+        // [A-z] 查找大写A到大写Z和小写a到小写z 大小写
+
+        //RegExp手册 https://www.runoob.com/jsref/jsref-obj-regexp.html
+        var str=/123/i
+        //test() 返回false或true
+        console.log(str.test("456"));
+        //正则 构造函数
+        var str1=new RegExp("bengen","i");
+
+        // String 对象的方法
+        //search	检索与正则表达式相匹配的值。
+        //match	找到一个或多个正则表达式的匹配。
+        //replace	替换与正则表达式匹配的子串。
+        //split	把字符串分割为字符串数组。
+    </script>
+</body>
+</html>

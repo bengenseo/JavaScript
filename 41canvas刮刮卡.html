@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41canvas刮刮卡</title>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        article{
+            width: 500px;
+            margin: 0 auto;
+            background: chartreuse;
+            position: relative;
+        }
+        article h1{
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 50px;
+        }
+        #canvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1></h1>
+        <canvas id="canvas" height="200" width="500"></canvas>
+    </article>
+    
+    <script>
+        /** @type {HTMLCanvasElement} */ 
+        var articleDom=document.querySelector("article");
+        var h1Dom=document.querySelector("article h1");
+        var canvas=document.querySelector("#canvas");
+        var ctx=canvas.getContext("2d");
+
+        ctx.beginPath();
+        //画矩形
+        ctx.fillStyle="cornflowerblue";
+        ctx.fillRect(0,0,500,200);
+        ctx.font="50px 微软雅黑";
+        ctx.fillStyle="#fff";
+        ctx.fillText("刮刮卡",180,100);
+        ctx.closePath();
+
+        var isDraw=false;
+        //isDraw=true;允许绘制
+        canvas.onmousedown=function(){
+            isDraw=true;
+        }
+        
+        //移动鼠标绘制原形，清除原图像的目标内容
+        canvas.onmousemove=function(e){
+            if(isDraw){
+                var x=e.pageX-articleDom.offsetLeft;
+                var y=e.pageY-articleDom.offsetTop;
+                ctx.globalCompositeOperation="destination-out";
+                ctx.beginPath();
+                ctx.arc(x,y,20,0,2*Math.PI);
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+        canvas.onmouseup=function(){
+            isDraw=false;
+        }
+        var arr=[
+            {content:"特等奖",p:0.05},
+            {content:"一等奖",p:0.1},
+            {content:"二等奖",p:0.2},
+            {content:"三等奖",p:0.3},
+            {content:"谢谢惠顾",p:0.35},
+        ];
+        //随机生成一个0>num<1数字
+        var num=Math.random();
+        console.log(num);
+        if(num<arr[0].p){
+            h1Dom.innerHTML=arr[0].content;
+        }else if(num<arr[1].p){
+            h1Dom.innerHTML=arr[1].content;
+        }else if(num<arr[2].p){
+            h1Dom.innerHTML=arr[2].content;
+        }else if(num<arr[3].p){
+            h1Dom.innerHTML=arr[3].content;
+        }else{
+            h1Dom.innerHTML=arr[4].content;
+        }
+        
+    </script>
+
+</body>
+</html>
