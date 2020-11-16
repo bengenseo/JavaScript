@@ -1,2 +1,2 @@
 # SeoTilte
-Web前端笔记
+Web前端JavaScript笔记
