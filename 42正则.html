@@ -10,6 +10,7 @@
         //正则 字面量
         // i 忽视大小写
         // g 执行全局匹配
+        // s 代表.可以匹配换行
         // m 执行多行匹配
         // /^adc[0-9]$/
         // [0-9] 多个，0到9     0 1 2 3 4 5 6 7 8 9
@@ -21,7 +22,7 @@
         // [A-z] 查找大写A到大写Z和小写a到小写z 大小写
 
         //RegExp手册 https://www.runoob.com/jsref/jsref-obj-regexp.html
-        var str=/123/i
+        var str=/123/i;
         //test() 返回false或true
         console.log(str.test("456"));
         //正则 构造函数
@@ -32,6 +33,34 @@
         //match	找到一个或多个正则表达式的匹配。
         //replace	替换与正则表达式匹配的子串。
         //split	把字符串分割为字符串数组。
+
+
+        //exec() 匹配内容
+
+
+        //正向肯定模式 ?=
+        var reg=/\w\s(?=123)/
+        //正向否定模式 ?!
+        var reg1=/\w\s(?!123)/
+        //反向肯定模式 ?<=
+        var reg2=/\w\s(?<=123)/
+        //反向否定模式 ?<!
+        var reg3=/\w\s(?<!123)/
+        console.log(reg,reg1,reg2,reg3);
+
+        //正则组
+        //子匹配 (.*?)
+        var reg4=/\w\s(233?)/
+        //子匹配 命名为如：url  (?<url>.*?)
+        var reg5=/\w\s(?<url>.*?)/
+        //匹配 整数或小数
+        var reg6=/^-?\d+(\.\d+)$/
+        var reg7=/^-?[0-9]+(.[0-9]+)$/
+
+        //正则  解析对象 DOMParser()
+        var domParse=new DOMParser();
+        //domParse.parseFromString(对象,文件类型);
+        domParse.parseFromString(str,"text/html");
     </script>
 </body>
 </html>

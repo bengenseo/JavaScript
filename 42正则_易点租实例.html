@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42正则_易点租实例</title>
+</head>
+<body>
+    <script src="js/33getAjax.js"></script>
+    <script>
+        var arr=[];
+        getAjax("42ydz.html",function(xhr){
+            var str=xhr.responseText;
+            // console.log(str);
+            //正则  解析对象
+            var domParse=new DOMParser();
+            var strDom=domParse.parseFromString(str,"text/html");
+
+            var liList=strDom.querySelectorAll("body > div.weekly-selection-layer > div.weekly-selection-box.clearfix > .weekly-item");
+            // console.log(liList[0]);
+            //循环获取数据，保存为新数组
+            liList.forEach(function(item,i){
+                // console.log(item.querySelector(".item-box"));
+                var title=item.querySelector(".item-box h4").innerText;
+                var imgUrl=item.querySelector(".item-box .item-pic img").src;
+                var price=item.querySelector(".item-box .price").innerText;
+                // console.log(title,imgUrl);
+                arr.push({
+                    title,
+                    imgUrl,
+                    price
+                });
+            });
+            console.log(arr);
+
+            //生成HTML页面
+            var ulDom=document.createElement("ul");
+            ulDom.className="imgList";
+            arr.forEach(function(item,i){
+                var liDom=document.createElement("li");
+                liDom.innerHTML=`<h2><span>${i+1}</span>${item.title}</h2><p>${item.price}</p><img src="${item.imgUrl}" alt="">`; 
+                ulDom.appendChild(liDom);
+            });
+            document.body.appendChild(ulDom);
+        });
+    </script>
+</body>
+</html>
