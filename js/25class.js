@@ -16,7 +16,7 @@ class BgSwiper{
         this.swiperDiv.appendChild(this.circleListDiv);
         this.circles = document.querySelectorAll(selector+' .circle');
         this.currentImg = 0;
-        
+
         this.preBtn = document.querySelector(selector+" .pre");
         this.nextBtn = document.querySelector(selector+" .next");
         this.preBtn.onclick = function () {
@@ -31,6 +31,18 @@ class BgSwiper{
                 that.go(index);
             }
         })
+        //自动播放
+        //鼠标移开
+        this.swiperDiv.onmouseout=function(){
+            this.setId=setInterval(function(){
+                that.forword();
+            },1500);
+        };
+
+        //鼠标移入停止自动轮播
+        this.swiperDiv.onmouseover=function(){
+            clearInterval(this.setId)
+        };
     }
     //相同内容封装函数
     bannerImg() {
